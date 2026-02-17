@@ -1105,6 +1105,102 @@
             line-height: 1.7;
         }
 
+        /* News Section */
+        .news {
+            background: var(--color-surface);
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .news-card {
+            background: var(--color-surface-alt);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            padding: 28px;
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .news-card:hover {
+            border-color: var(--color-accent);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+        }
+
+        .news-card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .news-source {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--color-accent);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .news-date {
+            font-size: 0.75rem;
+            color: var(--color-text-light);
+        }
+
+        .news-card-title {
+            font-family: var(--font-display);
+            font-size: 1.125rem;
+            color: var(--color-text);
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .news-card-excerpt {
+            font-size: 0.9375rem;
+            color: var(--color-text-muted);
+            line-height: 1.7;
+            flex-grow: 1;
+            margin-bottom: 16px;
+        }
+
+        .news-card-link {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--color-accent);
+            transition: var(--transition-fast);
+        }
+
+        .news-card-link i {
+            width: 16px;
+            height: 16px;
+            transition: var(--transition-fast);
+        }
+
+        .news-card:hover .news-card-link {
+            gap: 10px;
+        }
+
+        @media (max-width: 1024px) {
+            .news-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         /* Footer */
         .footer {
             background: var(--color-primary);
@@ -1551,6 +1647,7 @@
                     <li><a href="#historia">História</a></li>
                     <li><a href="#empresas">Empresas</a></li>
                     <li><a href="#investimentos">Investimentos</a></li>
+                    <li><a href="#noticias">Notícias</a></li>
                 </ul>
                 <button class="nav-toggle" id="navToggle">
                     <span></span>
@@ -1569,6 +1666,7 @@
             <li><a href="#historia">História</a></li>
             <li><a href="#empresas">Empresas</a></li>
             <li><a href="#investimentos">Investimentos</a></li>
+            <li><a href="#noticias">Notícias</a></li>
         </ul>
     </div>
 
@@ -1604,9 +1702,7 @@
                     </div>
                     <div class="hero-visual">
                         <div class="hero-image-frame">
-                            <div class="hero-image-placeholder">
-                                <i data-lucide="user"></i>
-                            </div>
+                            <img src="images/edson-queiroz-neto.jpg" alt="Edson Queiroz Neto" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
                     </div>
                 </div>
@@ -1624,9 +1720,7 @@
             <div class="about-grid">
                 <div class="about-image fade-in">
                     <div class="about-image-container">
-                        <div class="about-image-placeholder">
-                            <i data-lucide="user"></i>
-                        </div>
+                        <img src="images/edson-queiroz-neto.jpg" alt="Edson Queiroz Neto" style="width: 100%; height: auto; display: block;">
                         <div class="about-image-caption">
                             <h4>Edson Queiroz Neto</h4>
                             <p>Presidente do Conselho de Administração do GEQ</p>
@@ -1787,6 +1881,13 @@
                             <div class="member-avatar">
                                 <i data-lucide="user"></i>
                             </div>
+                            <div class="member-name">Igor Queiroz Barroso</div>
+                            <div class="member-role">Conselheiro GEQ</div>
+                        </div>
+                        <div class="member-card">
+                            <div class="member-avatar">
+                                <i data-lucide="user"></i>
+                            </div>
                             <div class="member-name">Patrícia Queiroz</div>
                             <div class="member-role">Herdeira</div>
                         </div>
@@ -1794,8 +1895,43 @@
                             <div class="member-avatar">
                                 <i data-lucide="user"></i>
                             </div>
-                            <div class="member-name">Igor Queiroz</div>
-                            <div class="member-role">Conselheiro GEQ</div>
+                            <div class="member-name">Cláudio Queiroz Rocha</div>
+                            <div class="member-role">Herdeiro</div>
+                        </div>
+                        <div class="member-card">
+                            <div class="member-avatar">
+                                <i data-lucide="user"></i>
+                            </div>
+                            <div class="member-name">Abelardo Gadelha Rocha Neto</div>
+                            <div class="member-role">Herdeiro</div>
+                        </div>
+                        <div class="member-card">
+                            <div class="member-avatar">
+                                <i data-lucide="user"></i>
+                            </div>
+                            <div class="member-name">Paula Queiroz Frota</div>
+                            <div class="member-role">Herdeira</div>
+                        </div>
+                        <div class="member-card">
+                            <div class="member-avatar">
+                                <i data-lucide="user"></i>
+                            </div>
+                            <div class="member-name">Vitor Queiroz Frota</div>
+                            <div class="member-role">Herdeiro</div>
+                        </div>
+                        <div class="member-card">
+                            <div class="member-avatar">
+                                <i data-lucide="user"></i>
+                            </div>
+                            <div class="member-name">Manoela Valença Queiroz</div>
+                            <div class="member-role">Herdeira</div>
+                        </div>
+                        <div class="member-card">
+                            <div class="member-avatar">
+                                <i data-lucide="user"></i>
+                            </div>
+                            <div class="member-name">Otávio Valença Queiroz</div>
+                            <div class="member-role">Herdeiro</div>
                         </div>
                     </div>
                 </div>
@@ -2116,6 +2252,96 @@
                     <h4>Construção Civil</h4>
                     <p>Projetos em mais de 2 milhões de metros quadrados sob responsabilidade da Colibri.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="section news" id="noticias">
+        <div class="container">
+            <div class="section-header center">
+                <div class="section-label">
+                    <i data-lucide="newspaper"></i>
+                    Na Mídia
+                </div>
+                <h2 class="section-title fade-in">Últimas Notícias</h2>
+                <p class="section-subtitle fade-in fade-in-delay-1">
+                    Destaques recentes do Grupo Edson Queiroz e suas empresas
+                </p>
+            </div>
+
+            <div class="news-grid">
+                <a href="https://veja.abril.com.br/coluna/radar-economico/grupo-edson-queiroz-registra-r-128-bilhoes-em-receitas/" target="_blank" class="news-card fade-in">
+                    <div class="news-card-meta">
+                        <span class="news-source">Veja</span>
+                        <span class="news-date">Maio 2025</span>
+                    </div>
+                    <h3 class="news-card-title">Grupo Edson Queiroz bate R$ 12,8 bilhões em receitas</h3>
+                    <p class="news-card-excerpt">O GEQ atingiu receita bruta de R$ 12,8 bilhões em 2024, com crescimento médio de 34% ao ano nos últimos cinco anos.</p>
+                    <div class="news-card-link">
+                        Ler mais <i data-lucide="arrow-right"></i>
+                    </div>
+                </a>
+
+                <a href="https://diariodonordeste.verdesmares.com.br/negocios/grupo-edson-queiroz-geq-cresce-36-em-2024-e-ebitda-atinge-r-17-bilhao-1.3651641" target="_blank" class="news-card fade-in fade-in-delay-1">
+                    <div class="news-card-meta">
+                        <span class="news-source">Diário do Nordeste</span>
+                        <span class="news-date">Maio 2025</span>
+                    </div>
+                    <h3 class="news-card-title">GEQ cresce 36% em 2024 e EBITDA atinge R$ 1,7 bilhão</h3>
+                    <p class="news-card-excerpt">O grupo encerrou 2024 com resultado expressivo, sinalizando crescimento de 36% em relação ao ano anterior.</p>
+                    <div class="news-card-link">
+                        Ler mais <i data-lucide="arrow-right"></i>
+                    </div>
+                </a>
+
+                <a href="https://neofeed.com.br/negocios/nacional-gas-cria-o-ifood-do-botijao-a-espera-do-boom-de-consumo-do-gas-de-cozinha/" target="_blank" class="news-card fade-in fade-in-delay-2">
+                    <div class="news-card-meta">
+                        <span class="news-source">NeoFeed</span>
+                        <span class="news-date">Outubro 2025</span>
+                    </div>
+                    <h3 class="news-card-title">Nacional Gás cria o "iFood do botijão"</h3>
+                    <p class="news-card-excerpt">A distribuidora de GLP investe em digitalização e lança app para revolucionar a experiência de compra do gás de cozinha.</p>
+                    <div class="news-card-link">
+                        Ler mais <i data-lucide="arrow-right"></i>
+                    </div>
+                </a>
+
+                <a href="https://diariodonordeste.verdesmares.com.br/negocios/edson-queiroz-neto-presidente-do-conselho-do-geq-e-homenageado-em-leilao-beneficente-1.3588165" target="_blank" class="news-card fade-in">
+                    <div class="news-card-meta">
+                        <span class="news-source">Diário do Nordeste</span>
+                        <span class="news-date">Novembro 2024</span>
+                    </div>
+                    <h3 class="news-card-title">Edson Queiroz Neto é homenageado pelo LIDE Ceará</h3>
+                    <p class="news-card-excerpt">O presidente do Conselho do GEQ foi homenageado na 7ª edição do Natal do Bem por sua contribuição ao desenvolvimento econômico.</p>
+                    <div class="news-card-link">
+                        Ler mais <i data-lucide="arrow-right"></i>
+                    </div>
+                </a>
+
+                <a href="https://www.portalin.com.br/negocios/edson-queiroz-neto-chega-a-presidencia-do-conselho-de-administracao-do-geq/" target="_blank" class="news-card fade-in fade-in-delay-1">
+                    <div class="news-card-meta">
+                        <span class="news-source">Portal IN</span>
+                        <span class="news-date">Abril 2024</span>
+                    </div>
+                    <h3 class="news-card-title">Edson Queiroz Neto assume presidência do Conselho do GEQ</h3>
+                    <p class="news-card-excerpt">A transição de liderança representa um marco na trajetória de um dos mais relevantes conglomerados do País.</p>
+                    <div class="news-card-link">
+                        Ler mais <i data-lucide="arrow-right"></i>
+                    </div>
+                </a>
+
+                <a href="https://valorinternational.globo.com/business/news/2024/04/16/edson-queiroz-to-expand-in-infrastructure-in-brazil.ghtml" target="_blank" class="news-card fade-in fade-in-delay-2">
+                    <div class="news-card-meta">
+                        <span class="news-source">Valor International</span>
+                        <span class="news-date">Abril 2024</span>
+                    </div>
+                    <h3 class="news-card-title">Edson Queiroz to expand in infrastructure in Brazil</h3>
+                    <p class="news-card-excerpt">The Ceará-based group seeks expansion in infrastructure sector across Brazil.</p>
+                    <div class="news-card-link">
+                        Ler mais <i data-lucide="arrow-right"></i>
+                    </div>
+                </a>
             </div>
         </div>
     </section>

@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="shortcut icon" href="https://www.opovo.com.br/reboot/includes/assets/img/favicon.png "/>
+  <link rel="stylesheet" href="/reboot/includes/assets/css/main.css">
+  <link rel="stylesheet" href="/reboot/includes/assets/css/404.css">
+  <title>O POVO</title>
+  <script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+  <script>
+      $(document).ready(function(){
+          $('#item-noticias').hover(function(){
+              $('#submenu-noticas').show();
+          }, function(){
+              $('#submenu-noticas').hide();
+          });
+          $('#item-esportes').hover(function(){
+              $('#submenu-esportes').show();
+          }, function(){
+              $('#submenu-esportes').hide();
+          });
+          $('#item-entretenimento').hover(function(){
+              $('#submenu-entretenimento').show();
+          }, function(){
+              $('#submenu-entretenimento').hide();
+          });
+          $('#item-vidaearte').hover(function(){
+              $('#submenu-vidaearte').show();
+          }, function(){
+              $('#submenu-vidaearte').hide();
+          });
+
+          $('#icon-menulateral').click(function(){
+              // $('#box-menulateral').toggle();
+              $('#box-menulateral').toggleClass('active');
+          });
+          $('#fechar').click(function(){
+              $('#box-menulateral').toggleClass('active');
+              // $('#box-menulateral').hide();
+          });
+          $(window).bind('scroll', function() {
+              var navHeight = $( window ).height() - 200;
+              if ($(window).scrollTop() > navHeight) {
+                  $('#menu').addClass('fixed');
+                  $('#box-menulateral').addClass('fixed');
+              }
+              else {
+                  $('#menu').removeClass('fixed');
+                  $('#box-menulateral').removeClass('fixed');
+              }
+          });
+      });
+        
+  </script>
+  <script>
+    window.googletag = window.googletag || {cmd: []};
+    googletag.cmd.push(function() {
+        googletag.defineSlot('/10216148/banner_bottom_desktop', [468, 60], 'div-gpt-ad-1585077831333-0').addService(googletag.pubads());
+        googletag.pubads().enableSingleRequest();
+        googletag.pubads().collapseEmptyDivs();
+        googletag.enableServices();
+    });
+  </script>
+  <style>
+    body{
+      height: 2000px;
+    }
+  </style>
+
+  <script src='https://www.googletagservices.com/tag/js/gpt.js'></script>
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-WBWHQHX');</script>
+
+  <link rel="manifest" href="https://www.opovo.com.br/includes/assets/online/geral/js/manifest.json">
+  <link rel="apple-touch-icon" href="https://www.opovo.com.br/includes/assets/online/geral/imgs/icons/icon-128x128.png">
+
+</head>
+<body>
+    <!-- Menu -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 m-0">
+                <div class="menu" id="menu">
+                    <nav>
+                        <ul>
+                            <li>
+                                <img class="icone-menu" src="/reboot/includes/assets/img/icon/menu icon.svg"  alt="icone do menu" id="icon-menulateral"/>
+                            </li>
+                            <li>
+                                <a href="https://www.opovo.com.br">
+                                    <img src="/reboot/includes/assets/img/icon/opovo logo.svg" alt="logo" class="logo"/>
+                                </a>
+                            </li>
+                            <li id="item-noticias"><a href="https://www.opovo.com.br/noticias" >Notícias</a>
+                                <div class="sub box-submenu" id="submenu-noticas">
+                                    <div class="container-submemenu">
+                                    <a href="https://www.opovo.com.br/noticias" class="link-submenu font-weight-bold">Notícias</a>
+                                    <ul class="submenu-noticas">
+                                        <li><a href="https://www.opovo.com.br/noticias/politica">Política</a></li>
+                                        <li><a href="https://www.opovo.com.br/noticias/fortaleza">Fortaleza</a></li>
+                                        <li><a href="https://www.opovo.com.br/noticias/economia">Economia</a></li>
+                                        <li><a href="https://www.opovo.com.br/noticias/brasil/">Brasil</a></li>
+                                    </ul>
+                                    <ul class="submenu-noticas">
+                                        <li><a href="https://www.opovo.com.br/noticias/ceara/">Ceará</a></li>
+                                        <li><a href="https://www.opovo.com.br/noticias/mundo/">Mundo</a></li>
+                                        <li><a href="https://www.opovo.com.br/noticias/saude/">Saúde</a></li>
+                                        <li><a href="https://www.opovo.com.br/noticias/tecnologia/">Tecnologia</a></li>
+                                    </ul>
+                                    <ul class="submenu-noticas">
+                                        <li><a href="https://www.opovo.com.br/noticias/curiosidades/">Curiosidades</a></li>
+                                        <li><a href="https://www.opovo.com.br/noticias/veiculos/">Veículos</a></li>
+                                        <li><a href="https://www.opovo.com.br/noticias/checagemopovo/">Checagem</a></li>
+                                    </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li id="item-esportes">
+                                <a href="https://www.opovo.com.br/esportes/">Esportes</a>
+                                <div class="sub box-submenu" id="submenu-esportes">
+                                    <div class="container-submemenu h-100">
+                                    <a href="https://www.opovo.com.br/esportes/" class="link-submenu font-weight-bold">Esportes</a>
+                                    <ul class="submenu-esportes">
+                                        <li><a href="https://www.opovo.com.br/esportes/futebol/times/ceara/">Ceará</a></li>
+                                        <li><a href="https://www.opovo.com.br/esportes/futebol/times/fortaleza/">Fortaleza</a></li>
+                                        <li><a href="https://www.opovo.com.br/esportes/futebol/times/cearenses/">Cearenses</a></li>
+                                        <li><a href="https://www.opovo.com.br/esportes/futebol/">Futebol</a></li>
+                                    </ul>
+                                    <ul class="submenu-esportes">
+                                        <li><a href="https://adorofutebol.com.br">Tabelas</a></li>
+                                        <li><a href="http://www.opovo.com.br/esportes/mais-esportes/">Mais esportes</a></li>
+                                        <li><a href="https://www.opovo.com.br/esportes/futebolinternacional">Futebol Internacional</a></li>
+                                    </ul>
+                                    <div class="box-maisesportes">
+                                        <span class="font-weight-bold">Mais times:</span>
+                                        <ul class="submenu-maisesportes">
+                                            <li><a href="https://www.opovo.com.br/esportes/futebol/times/atleticomg/">Atlético-MG</a></li>
+                                            <li><a href="https://www.opovo.com.br/esportes/futebol/times/botafogo/">Botafogo</a></li>
+                                            <li><a href="https://www.opovo.com.br/esportes/futebol/times/corinthians/">Corinthians</a></li>
+                                            <li><a href="https://www.opovo.com.br/esportes/futebol/times/cruzeiro/">Cruzeiro</a></li>
+                                        </ul>
+                                        <ul class="submenu-maisesportes">
+                                            <li><a href="https://www.opovo.com.br/esportes/futebol/times/flamengo/">Flamengo</a></li>
+                                            <li><a href="https://www.opovo.com.br/esportes/futebol/times/fluminense/">Fluminense</a></li>
+                                            <li><a href="https://www.opovo.com.br/esportes/futebol/times/gremio/">Grêmio</a></li>
+                                            <li><a href="https://www.opovo.com.br/esportes/futebol/times/internacional/">Internacional</a></li>
+                                        </ul>
+                                        <ul class="submenu-maisesportes">
+                                            <li><a href="https://www.opovo.com.br/esportes/futebol/times/palmeiras/">Palmeiras</a></li>
+                                            <li><a href="https://www.opovo.com.br/esportes/futebol/times/santos/">Santos</a></li>
+                                            <li><a href="https://www.opovo.com.br/esportes/futebol/times/saopaulo/">São Paulo</a></li>
+                                            <li><a href="https://www.opovo.com.br/esportes/futebol/times/vasco/">Vasco</a></li>
+                                        </ul>
+                                    </div>
+                                    </div>
+                                 </div>
+                            </li>
+                            <li id="item-entretenimento">
+                                <a href="https://www.opovo.com.br/divirtase" >Divirta-se</a>
+                                <div class="sub box-submenu" id="submenu-entretenimento">
+                                    <div class="container-submemenu">
+                                    <a href="https://www.opovo.com.br/divirtase" class="link-submenu font-weight-bold">Divirta-se</a>
+                                    <ul class="submenu-entretenimento">
+                                        <li><a href="https://www.opovo.com.br/calculadoras/">Calculadoras</a></li>
+                                        <li><a href="https://www.opovo.com.br/divirtase/thevoice/">The Voice</a></li>
+                                        <li><a href="https://www.opovo.com.br/divirtase/afazenda">A Fazenda</a></li>
+                                    </ul>
+                                    <ul class="submenu-entretenimento">
+                                        <li><a href="https://www.opovo.com.br/divirtase/bbb/">BBB</a></li>
+                                        <li><a href="https://www.opovo.com.br/divirtase/masterchef/">Masterchef</a></li>
+                                        <li><a href="https://www.opovo.com.br/divirtase/powercouplebrasil/">Power Couple Brasil</a></li>
+                                    </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li id="item-vidaearte">
+                                <a href="http://www.opovo.com.br/vidaearte">Vida & Arte</a>
+                                <div class="sub box-submenu" id="submenu-vidaearte">
+                                    <div class="container-submemenu">
+                                    <a href="http://www.opovo.com.br/vidaearte" class="link-submenu font-weight-bold">Vida & Arte</a>
+                                    <ul class="submenu-vidaearte">
+                                        <li><a href="https://www.opovo.com.br/vidaearte/carnaval/">Carnaval</a></li>
+                                        <li><a href="https://www.opovo.com.br/vidaearte/agenda/">Agenda</a></li>
+                                        <li><a href="https://www.opovo.com.br/vidaearte/cinema/">Cinema</a></li>
+                                    </ul>
+                                    <ul class="submenu-vidaearte">
+                                        <li><a href="https://www.opovo.com.br/vidaearte/turismo/">Turismo</a></li>
+                                        <li><a href="https://www.opovo.com.br/vidaearte/showseespetaculos/">Show e Espetaculo</a></li>
+                                        <li><a href="https://www.opovo.com.br/vidaearte/exposicoesecursos/">Exposições e Cursos</a></li>
+                                    </ul>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <div class="container-btn-menu">
+                            <a href="#">
+                                <img class="pesquisa" src="/reboot/includes/assets/img/icon/icone-busca.svg" alt="imagem do icone de pesquisa"/>
+                            </a>
+                            <a href="#" class="assine">Assine</a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="box-menulateral" id="box-menulateral">
+        <div class="sub-menulateral">
+            <span><img class="pesquisa" src="/reboot/includes/assets/img/icon/icone-busca.svg" alt="imagem do icone de pesquisa"/></span>
+            <span><a href="#"><img src="/reboot/includes/assets/img/icon/opovo logo.svg" alt="logo" class="logo"/></a></span>
+            <span class="fechar" id="fechar"><img src="/reboot/includes/assets/img/icon/icone-fechar.svg"></span>
+        </div>
+
+        <div class="container-scroll">
+            <ul>
+                <li class="parent-link"><a href="#">Notícias</a></li>
+                <li><a href="#">Política</a></li>
+                <li><a href="#">Fortaleza</a></li>
+                <li><a href="#">Economia</a></li>
+                <li><a href="#">Brasil</a></li>
+                <li><a href="#">Ceará</a></li>
+                <li><a href="#">Mundo</a></li>
+                <li><a href="#">Saúde</a></li>
+                <li><a href="#">Tecnologia</a></li>
+                <li><a href="#">Curiosidades</a></li>
+                <li><a href="#">Veículos</a></li>
+                <li><a href="#">Checagem</a></li>
+            </ul>
+            <ul>
+                <li class="parent-link"><a href="#">Esportes</a></li>
+                <li><a href="#">Ceará</a></li>
+                <li><a href="#">Fortaleza</a></li>
+                <li><a href="#">Cearenses</a></li>
+                <li><a href="#">Futebol</a></li>
+                <li><a href="#">Tabelas</a></li>
+                <li><a href="#">Mais esportes</a></li>
+                <li><a href="#">Futebol Internacional</a></li>
+                <li><a href="#">Atlético-MG</a></li>
+                <li><a href="#">Botafogo</a></li>
+                <li><a href="#">Corinthians</a></li>
+                <li><a href="#">Cruzeiro</a></li>
+                <li><a href="#">Flamengo</a></li>
+                <li><a href="#">Fluminense</a></li>
+                <li><a href="#">Grêmio</a></li>
+                <li><a href="#">Internacional</a></li>
+                <li><a href="#">Palmeiras</a></li>
+                <li><a href="#">Santos</a></li>
+                <li><a href="#">São Paulo</a></li>
+                <li><a href="#">Vasco</a></li>
+            </ul>
+            <ul>
+                <li class="parent-link"><a href="#">Entretenimento</a></li>
+                <li><a href="#">Vida&Arte</a></li>
+                <li><a href="#">Cinema</a></li>
+                <li><a href="#">Divirta-se</a></li>
+                <li><a href="#">The Voice</a></li>
+                <li><a href="#">A Fazenda</a></li>
+                <li><a href="#">BBB</a></li>
+                <li><a href="#">Masterchef</a></li>
+                <li><a href="#">Power Couple Brasil</a></li>
+            </ul>
+            <ul>
+                <li class="parent-link"><a href="#">Especiais</a></li>
+                <li class="parent-link"><a href="#">Vídeos</a></li>
+            </ul>
+            <ul>
+                <li class="parent-link"><a href="#"></a></li>
+                <li><a href="#">O POVO Mais</a></li>
+                <li><a href="#">O POVO CBN</a></li>
+                <li><a href="#">Nova Brasil FM</a></li>
+                <li><a href="#">Canal FDR</a></li>
+                <li><a href="#">Populares</a></li>
+                <li><a href="#">Anuário do Ceará</a></li>
+            </ul>
+            <div class="social">
+                <ul>
+                    <li>
+                        <a href="https://www.instagram.com/opovoonline/" class="btn-insta" title="Instagram O POVO Online">Instagram</a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/company/opovoonline/" class="btn-linkedin"  title="LinkedIn O POVO Online">LinkedIn</a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/opovoonline?lang=pt" class="btn-twitter"  title="Twitter O POVO Online">Twitter</a>
+                    </li>
+                    <li>
+                        <a href="https://www.youtube.com/channel/UCj-RTZE-V3Q6jleatRR9k2A" class="btn-youtube"  title="Youtube O POVO Online">Youtube</a>
+                    </li>
+                    <li>
+                        <a href="https://www.facebook.com/OPOVOOnline" class="btn-face"  title="Facebook O POVO Online">Facebook</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="copyright">
+                <span>Copyright &#169; 2021. Todos os direitos reservados.</span>
+            </div>
+            <div class="termos">
+                <span><a href="">Termo de Uso</a></span>
+                <span><a href="">Política de Privacidade</a></span>
+                <span><a href="">Política de Cookies</a></span>
+                <span><a href="">Conheça O POVO</a></span>
+                <span><a href="">Trabalhe Conosco</a></span>
+                <span><a href="">Fale com a gente</a></span>
+                <span><a href="">Assine</a></span>
+                <span><a href="">Ombudsman</a></span>
+            </div>
+            <div class="trueproject-caixa">
+                <span class="trueproject">Participamos do <img src="/reboot/includes/assets/img/trustlogo.png" /></span>
+            </div>
+        </div>
+    </div>
+    <!-- Fim do Menu -->
+
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+            <script>
+                window.googletag = window.googletag || {cmd: []};
+                googletag.cmd.push(function() {
+                    googletag.defineSlot('/10216148/sb_portal_noticias', [[970, 90], [970, 150], [728, 300], [970, 250], [728, 90]], 'div-gpt-ad-1629383197332-0').addService(googletag.pubads());
+                    googletag.defineSlot('/10216148/tb_mobile_portal_noticias', [[300, 50], [320, 100]], 'div-gpt-ad-1629384762857-0').addService(googletag.pubads());
+                    googletag.defineSlot('/10216148/bb_mobile_portal_noticias', [320, 50], 'div-gpt-ad-1629385090173-0').addService(googletag.pubads());
+                    googletag.pubads().enableSingleRequest();
+                    googletag.pubads().collapseEmptyDivs();
+                    googletag.enableServices();
+                });
+            </script>
+                <div class="publicidade" role="banner">                    
+                    <div class="super-banner-center">
+                        <div id='div-gpt-ad-1629383197332-0' style='min-width: 728px; min-height: 90px;'>
+                            <script>
+                                googletag.cmd.push(function() { googletag.display('div-gpt-ad-1629383197332-0'); });
+                            </script>
+                        </div>
+                    </div>
+                </div>
+                <div class="banner-top-banner">
+                    <div id='div-gpt-ad-1629384762857-0' style='min-width: 300px; min-height: 50px;'>
+                        <script>
+                            googletag.cmd.push(function() { googletag.display('div-gpt-ad-1629384762857-0'); });
+                        </script>
+                    </div>
+                </div>
+                <div class="bannerbb mobile-banner">
+                    <div id='div-gpt-ad-1629385090173-0' style='min-width: 320px; min-height: 50px;'>
+                        <script>
+                            googletag.cmd.push(function() { googletag.display('div-gpt-ad-1629385090173-0'); });
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="anuncio-placeholder" style="margin-bottom: 50px;"></div>
+
+    <div class="main-404">
+      <div class="container">
+        <h1>Página não encontrada.</h1>  
+        <p>A página que está tentando acessar não pode ser encontrada no momento. Enquanto isso, use a ferramenta de busca abaixo para continuar navegando ou acesse as últimas notícias.</p>
+        <form action="https://www.opovo.com.br/busca">
+          <input placeholder="Busque aqui" name="q" required/>
+          <button>
+            <img src="/reboot/includes/assets/img/icon/icone-busca-branco.svg" class="search-icon" alt="imagem do icone de pesquisa">
+          </button>
+        </form>
+        <div>
+          <a class="btn-lightblue" href="https://opovo.com.br">Ir para Home</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container container-listagem listagem-404">
+      <div class="row">
+          <div class="col">
+            <h1 class="titulo-listagem">Últimas notícias</h1>
+            <div class="listagem"></div>
+            <div class="ler-mais-listagem-div">
+              <a href="#" class="ler-mais-listagem-link">
+                <span class="ler-mais-listagem seta-nav-azul seta-nav-ler-mais">Ler Mais</span>
+              </a>
+            </div>  
+          </div>
+      </div>
+    </div>
+
+    <div>
+        <footer>
+            <div class="rodape-main">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="caixa-rodape">
+                                <ul>
+                                    <li><a href="https://www.opovo.com.br/noticias">Noticias</a></li>
+                                    <li><a href="https://www.opovo.com.br/noticias/politica">Política</a></li>
+                                    <li><a href="https://www.opovo.com.br/noticias/fortaleza">Fortaleza</a></li>
+                                    <li><a href="https://www.opovo.com.br/noticias/economia">Economia</a></li>
+                                    <li><a href="https://www.opovo.com.br/noticias/brasil/">Brasil</a></li>
+                                    <li><a href="https://www.opovo.com.br/noticias/ceara/">Ceará</a></li>
+                                    <li><a href="#https://www.opovo.com.br/noticias/mundo/">Mundo</a></li>
+                                    <li><a href="https://www.opovo.com.br/noticias/saude/">Saúde</a></li>
+                                    <li><a href="https://www.opovo.com.br/noticias/tecnologia/">Tecnologia</a></li>
+                                    <li><a href="https://www.opovo.com.br/noticias/curiosidades/">Curiosidades</a></li>
+                                    <li><a href="https://www.opovo.com.br/noticias/veiculos/">Veículos</a></li>
+                                    <li><a href="https://www.opovo.com.br/noticias/checagemopovo/">Checagem</a></li>
+                                </ul>
+                                <ul>
+                                    <li><a href="https://www.opovo.com.br/esportes/">Esportes</a></li>
+                                    <li><a href="https://www.opovo.com.br/esportes/futebol/times/ceara/">Ceará</a></li>
+                                    <li><a href="https://www.opovo.com.br/esportes/futebol/times/fortaleza/#">Fortaleza</a></li>
+                                    <li><a href="https://www.opovo.com.br/esportes/futebol/times/cearenses/">Cearenses</a></li>
+                                    <li><a href="https://www.opovo.com.br/esportes/futebol/">Futebol</a></li>
+                                    <li><a href="http://adorofutebol.com.br/">Tabelas</a></li>
+                                    <li><a href="https://www.opovo.com.br/esportes/maisesportes/">Mais esportes</a></li>
+                                    <li><a href="https://www.opovo.com.br/esportes/futebolinternacional">Futebol Internacional</a></li>
+                                    <li><a href="https://www.opovo.com.br/esportes/futebol/times/atleticomg/">Atlético-MG</a></li>
+                                    <li><a href="https://www.opovo.com.br/esportes/futebol/times/botafogo/">Botafogo</a></li>
+                                    <li><a href="https://www.opovo.com.br/esportes/futebol/times/corinthians/">Corinthians</a></li>
+                                    <li><a href="https://www.opovo.com.br/esportes/futebol/times/cruzeiro/">Cruzeiro</a></li>
+                                    <li><a href="https://www.opovo.com.br/esportes/futebol/times/flamengo/">Flamengo</a></li>
+                                    <li><a href="https://www.opovo.com.br/esportes/futebol/times/fluminense/">Fluminense</a></li>
+                                    <li><a href="https://www.opovo.com.br/esportes/futebol/times/gremio/">Grêmio</a></li>
+                                    <li><a href="https://www.opovo.com.br/esportes/futebol/times/internacional/">Internacional</a></li>
+                                    <li><a href="https://www.opovo.com.br/esportes/futebol/times/palmeiras/">Palmeiras</a></li>
+                                    <li><a href="https://www.opovo.com.br/esportes/futebol/times/santos/">Santos</a></li>
+                                    <li><a href="https://www.opovo.com.br/esportes/futebol/times/saopaulo/">São Paulo</a></li>
+                                    <li><a href="https://www.opovo.com.br/esportes/futebol/times/vasco/">Vasco</a></li>
+                                </ul>
+                                <ul>
+                                    <li><a href="https://www.opovo.com.br/divirtase">Entretenimento</a></li>
+                                    <li><a href="https://www.opovo.com.br/vidaearte">Vida&amp;Arte</a></li>
+                                    <li><a href="https://www.opovo.com.br/vidaearte/cinema/">Cinema</a></li>
+                                    <li><a href="https://www.opovo.com.br/divirtase">Divirta-se</a></li>
+                                    <li><a href="https://www.opovo.com.br/divirtase/thevoice/">The Voice</a></li>
+                                    <li><a href="https://www.opovo.com.br/divirtase/a-fazenda">A Fazenda</a></li>
+                                    <li><a href="https://www.opovo.com.br/divirtase/bbb/">BBB</a></li>
+                                    <li><a href="https://www.opovo.com.br/divirtase/masterchef/">Masterchef</a></li>
+                                    <li><a href="https://www.opovo.com.br/divirtase/powercouplebrasil/">Power Couple Brasil</a></li>
+                                </ul>
+                                <ul>
+                                    <li><a href="https://especiais.opovo.com.br/">Especiais</a></li>
+                                    <li><a href="https://www.opovo.com.br/videos/">Vídeos</a></li>
+                                </ul>
+                                <ul>
+                                    <li><a href="#"></a></li>
+                                    <li><a href="https://mais.opovo.com.br/">O POVO Mais</a></li>
+                                    <li><a href="https://cbn.opovo.com.br/">O POVO CBN</a></li>
+                                    <li><a href="http://fortaleza.novabrasilfm.com.br/">Nova Brasil FM</a></li>
+                                    <li><a href="http://fdr.org.br/tvopovo/">Canal FDR</a></li>
+                                    <!-- <li><a href="http://populares.com.br/">Populares</a></li> -->
+                                    <li><a href="http://www.anuariodoceara.com.br/">Anuário do Ceará</a></li>
+                                </ul>
+                                <div class="trueproject-caixa">
+                                    <a href="https://thetrustproject.org" class="trueproject">Participamos do <img src="/reboot/includes/assets/img/trustlogo.png"></a>
+                                </div>
+                                <div class="direitos">
+                                    <p>Copyright © 2021. Todos os direitos reservados.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box-rodape">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="imagem-rodape">
+                                <img src="https://www.opovo.com.br/includes/assets/online/geral/imgs/o-povo-online.png" alt="logo">
+                                <div class="direitos">
+                                    <p>Copyright © 2021. Todos os direitos reservados.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="/reboot/includes/assets/js/404.js"></script>
+    <script src="/reboot/includes/assets/js/main.js"></script>  
+</body>
+</html>
