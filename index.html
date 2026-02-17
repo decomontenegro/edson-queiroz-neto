@@ -4,17 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edson Queiroz Neto - Empresário & Investidor</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Edson Queiroz Neto - Presidente do Conselho de Administração do Grupo Edson Queiroz, empresário e investidor brasileiro.">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #1a365d;
+            --primary: #0f2744;
+            --primary-light: #1a365d;
             --secondary: #2c5282;
-            --accent: #ed8936;
-            --gold: #d69e2e;
-            --dark: #1a202c;
-            --light: #f7fafc;
-            --gray: #718096;
+            --accent: #e07a2f;
+            --accent-light: #f6a560;
+            --gold: #c9a227;
+            --gold-light: #e8c547;
+            --dark: #0a1628;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --gray-light: #94a3b8;
+            --white: #ffffff;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+            --shadow-lg: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+            --shadow-xl: 0 25px 50px -12px rgba(0,0,0,0.25);
+            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         * {
@@ -25,13 +38,80 @@
 
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 80px;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--light);
             color: var(--dark);
             line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Page loader */
+        .page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s, visibility 0.5s;
+        }
+
+        .page-loader.loaded {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-content {
+            text-align: center;
+            color: white;
+        }
+
+        .loader-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        .loader-bar {
+            width: 200px;
+            height: 3px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .loader-progress {
+            height: 100%;
+            background: var(--accent);
+            animation: loading 1.5s ease-in-out;
+        }
+
+        @keyframes loading {
+            0% { width: 0; }
+            100% { width: 100%; }
+        }
+
+        /* Reading progress bar */
+        .reading-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--gold));
+            z-index: 1001;
+            transition: width 50ms linear;
         }
 
         /* Navigation */
@@ -39,16 +119,19 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(26, 54, 93, 0.95);
-            backdrop-filter: blur(10px);
+            background: rgba(15, 39, 68, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             z-index: 1000;
             padding: 1rem 2rem;
-            transition: all 0.3s ease;
+            transition: var(--transition);
+            border-bottom: 1px solid rgba(255,255,255,0);
         }
 
         nav.scrolled {
-            padding: 0.5rem 2rem;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            padding: 0.6rem 2rem;
+            background: rgba(15, 39, 68, 0.98);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
         .nav-content {
@@ -61,33 +144,132 @@
 
         .logo {
             font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             color: white;
             font-weight: 700;
+            letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-accent {
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: inline-block;
         }
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
             list-style: none;
         }
 
         .nav-links a {
-            color: rgba(255,255,255,0.9);
+            color: rgba(255,255,255,0.85);
             text-decoration: none;
             font-size: 0.9rem;
             font-weight: 500;
-            transition: color 0.3s;
+            letter-spacing: 0.01em;
+            transition: var(--transition-fast);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: var(--transition);
         }
 
         .nav-links a:hover {
+            color: white;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Mobile menu */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 10px;
+            margin-right: -10px;
+            z-index: 1001;
+        }
+
+        .menu-toggle span {
+            width: 24px;
+            height: 2px;
+            background: white;
+            transition: var(--transition);
+            transform-origin: center;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: var(--primary);
+            z-index: 999;
+            padding: 100px 2rem 2rem;
+            transform: translateX(-100%);
+            transition: var(--transition);
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+        }
+
+        .mobile-menu a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 500;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: var(--transition-fast);
+        }
+
+        .mobile-menu a:hover {
             color: var(--accent);
+            padding-left: 1rem;
         }
 
         /* Hero Section */
         .hero {
             min-height: 100vh;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background: linear-gradient(160deg, var(--primary) 0%, var(--dark) 50%, var(--primary-light) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -102,8 +284,21 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/></svg>');
-            background-size: 100px 100px;
+            background: radial-gradient(ellipse at 30% 20%, rgba(224, 122, 47, 0.08) 0%, transparent 50%),
+                        radial-gradient(ellipse at 70% 80%, rgba(44, 82, 130, 0.1) 0%, transparent 50%);
+        }
+
+        .hero-bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(255,255,255,0.02) 1px, transparent 1px),
+                radial-gradient(circle at 75% 75%, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 60px 60px;
+            opacity: 0.5;
         }
 
         .hero-content {
@@ -111,75 +306,156 @@
             color: white;
             z-index: 1;
             padding: 2rem;
-            max-width: 900px;
+            max-width: 1000px;
         }
 
         .hero-badge {
-            display: inline-block;
-            background: var(--accent);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--accent), var(--gold));
             color: white;
-            padding: 0.5rem 1.5rem;
+            padding: 0.6rem 1.5rem;
             border-radius: 50px;
             font-size: 0.85rem;
             font-weight: 600;
             margin-bottom: 2rem;
-            animation: fadeInUp 0.8s ease;
+            box-shadow: 0 4px 15px rgba(224, 122, 47, 0.3);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .hero-badge i {
+            font-size: 0.75rem;
         }
 
         .hero h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 4rem;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
             font-weight: 700;
-            margin-bottom: 1rem;
-            animation: fadeInUp 0.8s ease 0.2s both;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease 0.15s forwards;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--accent-light), var(--gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .hero-subtitle {
-            font-size: 1.3rem;
-            color: rgba(255,255,255,0.8);
-            margin-bottom: 2rem;
-            animation: fadeInUp 0.8s ease 0.4s both;
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: rgba(255,255,255,0.75);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease 0.3s forwards;
         }
 
         .hero-stats {
             display: flex;
             justify-content: center;
-            gap: 4rem;
-            margin-top: 3rem;
-            animation: fadeInUp 0.8s ease 0.6s both;
+            gap: 3rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease 0.45s forwards;
         }
 
         .stat {
             text-align: center;
+            padding: 1.5rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            min-width: 140px;
+            transition: var(--transition);
+        }
+
+        .stat:hover {
+            background: rgba(255,255,255,0.08);
+            transform: translateY(-5px);
+            border-color: rgba(224, 122, 47, 0.3);
         }
 
         .stat-number {
-            font-size: 2.5rem;
+            font-size: clamp(1.5rem, 3vw, 2.2rem);
             font-weight: 700;
-            color: var(--accent);
+            background: linear-gradient(135deg, var(--accent-light), var(--gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.25rem;
         }
 
         .stat-label {
-            font-size: 0.9rem;
-            color: rgba(255,255,255,0.7);
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.6);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 500;
         }
 
         .scroll-indicator {
             position: absolute;
-            bottom: 2rem;
+            bottom: 2.5rem;
             left: 50%;
             transform: translateX(-50%);
-            animation: bounce 2s infinite;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            opacity: 0;
+            animation: fadeIn 1s ease 1s forwards;
         }
 
-        .scroll-indicator i {
-            color: rgba(255,255,255,0.5);
-            font-size: 2rem;
+        .scroll-indicator span {
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.4);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+
+        .scroll-mouse {
+            width: 26px;
+            height: 40px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 13px;
+            position: relative;
+        }
+
+        .scroll-mouse::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 2px;
+            animation: scrollMouse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes scrollMouse {
+            0%, 100% { opacity: 1; top: 8px; }
+            50% { opacity: 0.3; top: 20px; }
         }
 
         /* Sections */
         section {
-            padding: 6rem 2rem;
+            padding: 7rem 2rem;
+            position: relative;
         }
 
         .section-header {
@@ -188,23 +464,26 @@
         }
 
         .section-badge {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
-            padding: 0.4rem 1rem;
+            padding: 0.45rem 1rem;
             border-radius: 50px;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.1em;
             margin-bottom: 1rem;
         }
 
         .section-title {
             font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
+            font-size: clamp(2rem, 4vw, 3rem);
             color: var(--primary);
             margin-bottom: 1rem;
+            letter-spacing: -0.02em;
         }
 
         .section-subtitle {
@@ -212,6 +491,7 @@
             font-size: 1.1rem;
             max-width: 600px;
             margin: 0 auto;
+            line-height: 1.7;
         }
 
         /* About Section */
@@ -223,8 +503,8 @@
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 4rem;
+            grid-template-columns: 1fr 1.4fr;
+            gap: 5rem;
             align-items: center;
         }
 
@@ -232,47 +512,95 @@
             position: relative;
         }
 
+        .about-image-wrapper {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .about-image-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: 20px;
+            bottom: 20px;
+            border: 2px solid var(--accent);
+            border-radius: 24px;
+            z-index: -1;
+        }
+
         .about-image-placeholder {
             width: 100%;
             aspect-ratio: 3/4;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: 20px;
+            background: linear-gradient(160deg, var(--primary) 0%, var(--secondary) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             font-size: 8rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-image-placeholder::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.3) 100%);
         }
 
         .about-content h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 2rem;
+            font-size: 2.2rem;
             color: var(--primary);
             margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
         }
 
         .about-content p {
             color: var(--gray);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.25rem;
             font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .about-content p strong {
+            color: var(--primary);
         }
 
         .about-highlights {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            margin-top: 2rem;
+            gap: 1.25rem;
+            margin-top: 2.5rem;
         }
 
         .highlight-item {
             display: flex;
             align-items: flex-start;
             gap: 1rem;
+            padding: 1.25rem;
+            background: var(--light);
+            border-radius: 16px;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .highlight-item:hover {
+            background: white;
+            border-color: rgba(224, 122, 47, 0.2);
+            box-shadow: var(--shadow);
+            transform: translateY(-2px);
         }
 
         .highlight-icon {
-            width: 50px;
-            height: 50px;
+            width: 48px;
+            height: 48px;
             background: linear-gradient(135deg, var(--accent), var(--gold));
             border-radius: 12px;
             display: flex;
@@ -280,27 +608,30 @@
             justify-content: center;
             color: white;
             flex-shrink: 0;
+            font-size: 1.1rem;
         }
 
         .highlight-text h4 {
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: var(--dark);
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.2rem;
+            font-weight: 600;
         }
 
         .highlight-text p {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--gray);
             margin: 0;
+            line-height: 1.5;
         }
 
         /* Family Section */
         .family {
-            background: linear-gradient(180deg, #f7fafc 0%, #edf2f7 100%);
+            background: linear-gradient(180deg, var(--light) 0%, #e8eef5 100%);
         }
 
         .family-tree {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
@@ -308,17 +639,25 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             position: relative;
+            padding-bottom: 2rem;
         }
 
         .generation::after {
             content: '';
             position: absolute;
-            bottom: -1.5rem;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
             width: 2px;
-            height: 1.5rem;
-            background: var(--primary);
+            height: 2rem;
+            background: linear-gradient(180deg, var(--primary), transparent);
+        }
+
+        .generation:last-child {
+            padding-bottom: 0;
+            margin-bottom: 0;
         }
 
         .generation:last-child::after {
@@ -326,73 +665,92 @@
         }
 
         .gen-label {
-            background: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
-            padding: 0.5rem 1.5rem;
+            padding: 0.6rem 1.5rem;
             border-radius: 50px;
             font-size: 0.8rem;
             font-weight: 600;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
         }
 
         .gen-members {
             display: flex;
-            gap: 2rem;
+            gap: 1.5rem;
             flex-wrap: wrap;
             justify-content: center;
         }
 
         .member-card {
             background: white;
-            padding: 1.5rem;
-            border-radius: 16px;
+            padding: 1.75rem 1.5rem;
+            border-radius: 20px;
             text-align: center;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            transition: transform 0.3s, box-shadow 0.3s;
-            min-width: 180px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            min-width: 160px;
+            border: 1px solid rgba(0,0,0,0.04);
         }
 
         .member-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
         }
 
         .member-card.featured {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: linear-gradient(160deg, var(--primary) 0%, var(--secondary) 100%);
             color: white;
+            border: none;
+            transform: scale(1.05);
+        }
+
+        .member-card.featured:hover {
+            transform: scale(1.05) translateY(-8px);
         }
 
         .member-avatar {
-            width: 80px;
-            height: 80px;
-            background: var(--light);
+            width: 72px;
+            height: 72px;
+            background: linear-gradient(135deg, var(--light), #e2e8f0);
             border-radius: 50%;
             margin: 0 auto 1rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
+            font-size: 1.8rem;
         }
 
         .member-card.featured .member-avatar {
-            background: rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.15);
         }
 
         .member-name {
             font-weight: 600;
-            font-size: 1rem;
-            margin-bottom: 0.3rem;
+            font-size: 0.95rem;
+            margin-bottom: 0.25rem;
         }
 
         .member-role {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             opacity: 0.7;
         }
 
         /* Timeline Section */
         .timeline-section {
-            background: var(--primary);
+            background: linear-gradient(160deg, var(--primary) 0%, var(--dark) 100%);
             color: white;
+            overflow: hidden;
+        }
+
+        .timeline-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at 0% 50%, rgba(224, 122, 47, 0.1) 0%, transparent 50%);
         }
 
         .timeline-section .section-title {
@@ -400,13 +758,14 @@
         }
 
         .timeline-section .section-subtitle {
-            color: rgba(255,255,255,0.7);
+            color: rgba(255,255,255,0.65);
         }
 
         .timeline {
-            max-width: 1000px;
+            max-width: 900px;
             margin: 0 auto;
             position: relative;
+            padding: 2rem 0;
         }
 
         .timeline::before {
@@ -414,14 +773,18 @@
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            width: 3px;
+            width: 2px;
             height: 100%;
-            background: rgba(255,255,255,0.2);
+            background: linear-gradient(180deg, 
+                transparent 0%, 
+                rgba(255,255,255,0.3) 5%, 
+                rgba(255,255,255,0.3) 95%, 
+                transparent 100%);
         }
 
         .timeline-item {
             display: flex;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             position: relative;
         }
 
@@ -429,45 +792,71 @@
             flex-direction: row-reverse;
         }
 
+        .timeline-item:nth-child(odd) .timeline-content {
+            text-align: right;
+            margin-right: 4rem;
+            margin-left: 0;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: 4rem;
+        }
+
         .timeline-content {
-            width: 45%;
-            background: rgba(255,255,255,0.1);
+            width: calc(50% - 4rem);
+            background: rgba(255,255,255,0.08);
             backdrop-filter: blur(10px);
             padding: 1.5rem;
             border-radius: 16px;
             position: relative;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: var(--transition);
         }
 
-        .timeline-item:nth-child(odd) .timeline-content {
-            margin-right: 5%;
+        .timeline-content:hover {
+            background: rgba(255,255,255,0.12);
+            transform: scale(1.02);
         }
 
-        .timeline-item:nth-child(even) .timeline-content {
-            margin-left: 5%;
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 1.5rem;
+            transform: translateX(-50%);
+            width: 16px;
+            height: 16px;
+            background: var(--accent);
+            border-radius: 50%;
+            border: 3px solid var(--primary);
+            box-shadow: 0 0 0 4px rgba(224, 122, 47, 0.3);
         }
 
         .timeline-year {
             position: absolute;
             left: 50%;
-            transform: translateX(-50%);
-            background: var(--accent);
+            top: 0;
+            transform: translateX(-50%) translateY(-100%);
+            background: linear-gradient(135deg, var(--accent), var(--gold));
             color: white;
-            padding: 0.5rem 1rem;
+            padding: 0.4rem 1rem;
             border-radius: 50px;
             font-weight: 700;
-            font-size: 1rem;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            margin-top: -0.5rem;
         }
 
         .timeline-content h4 {
             font-size: 1.1rem;
             margin-bottom: 0.5rem;
-            color: var(--accent);
+            color: var(--accent-light);
+            font-weight: 600;
         }
 
         .timeline-content p {
             font-size: 0.9rem;
-            opacity: 0.9;
-            line-height: 1.5;
+            opacity: 0.85;
+            line-height: 1.6;
         }
 
         /* Companies Section */
@@ -479,21 +868,23 @@
             max-width: 1400px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 1.75rem;
         }
 
         .company-card {
             background: var(--light);
-            border-radius: 20px;
+            border-radius: 24px;
             overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: var(--transition);
             cursor: pointer;
+            border: 1px solid transparent;
         }
 
         .company-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-xl);
+            border-color: rgba(0,0,0,0.05);
         }
 
         .company-header {
@@ -503,27 +894,39 @@
             overflow: hidden;
         }
 
-        .company-header.geq { background: linear-gradient(135deg, #1a365d, #2c5282); }
-        .company-header.nacional { background: linear-gradient(135deg, #2b6cb0, #4299e1); }
-        .company-header.esmaltec { background: linear-gradient(135deg, #c53030, #e53e3e); }
-        .company-header.minalba { background: linear-gradient(135deg, #2f855a, #48bb78); }
-        .company-header.svm { background: linear-gradient(135deg, #6b46c1, #805ad5); }
-        .company-header.colibri { background: linear-gradient(135deg, #d69e2e, #ed8936); }
+        .company-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+        }
+
+        .company-header.geq { background: linear-gradient(135deg, #0f2744, #1a365d); }
+        .company-header.nacional { background: linear-gradient(135deg, #1e4d8c, #3182ce); }
+        .company-header.esmaltec { background: linear-gradient(135deg, #9b2c2c, #c53030); }
+        .company-header.minalba { background: linear-gradient(135deg, #22543d, #38a169); }
+        .company-header.svm { background: linear-gradient(135deg, #553c9a, #805ad5); }
+        .company-header.colibri { background: linear-gradient(135deg, #c9a227, #e07a2f); }
 
         .company-icon {
-            font-size: 3rem;
+            font-size: 2.5rem;
             margin-bottom: 1rem;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
         }
 
         .company-name {
             font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+            margin-bottom: 0.4rem;
+            font-weight: 600;
         }
 
         .company-tagline {
-            font-size: 0.9rem;
-            opacity: 0.9;
+            font-size: 0.85rem;
+            opacity: 0.85;
         }
 
         .company-body {
@@ -533,59 +936,81 @@
         .company-body p {
             color: var(--gray);
             font-size: 0.95rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.25rem;
+            line-height: 1.7;
         }
 
         .company-stats {
             display: flex;
-            gap: 1.5rem;
-            margin-top: 1rem;
-            padding-top: 1rem;
+            gap: 1rem;
+            padding-top: 1.25rem;
             border-top: 1px solid #e2e8f0;
         }
 
         .company-stat {
+            flex: 1;
             text-align: center;
+            padding: 0.75rem;
+            background: rgba(15, 39, 68, 0.03);
+            border-radius: 12px;
         }
 
         .company-stat-value {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 700;
             color: var(--primary);
+            margin-bottom: 0.2rem;
         }
 
         .company-stat-label {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
         }
 
         /* Personal Investments */
         .investments {
-            background: linear-gradient(180deg, #f7fafc 0%, white 100%);
+            background: linear-gradient(180deg, var(--light) 0%, white 100%);
         }
 
         .investment-hero {
-            max-width: 1000px;
-            margin: 0 auto;
+            max-width: 900px;
+            margin: 0 auto 4rem;
             background: linear-gradient(135deg, var(--gold), var(--accent));
-            border-radius: 24px;
-            padding: 3rem;
+            border-radius: 28px;
+            padding: 3.5rem;
             color: white;
             text-align: center;
-            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .investment-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L30 60M0 30L60 30' stroke='rgba(255,255,255,0.05)' stroke-width='1'/%3E%3C/svg%3E");
         }
 
         .investment-hero h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 2rem;
+            font-size: 2.2rem;
             margin-bottom: 1rem;
+            position: relative;
         }
 
         .investment-hero p {
             font-size: 1.1rem;
             opacity: 0.9;
-            max-width: 600px;
+            max-width: 550px;
             margin: 0 auto;
+            position: relative;
+            line-height: 1.7;
         }
 
         .investment-areas {
@@ -598,15 +1023,18 @@
 
         .investment-area {
             background: white;
-            padding: 2rem;
-            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
             text-align: center;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid transparent;
         }
 
         .investment-area:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(224, 122, 47, 0.2);
         }
 
         .investment-icon {
@@ -618,86 +1046,159 @@
             align-items: center;
             justify-content: center;
             margin: 0 auto 1.5rem;
-            font-size: 2rem;
+            font-size: 1.8rem;
             color: white;
+            box-shadow: 0 10px 30px rgba(224, 122, 47, 0.3);
         }
 
         .investment-area h4 {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             color: var(--primary);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
         }
 
         .investment-area p {
             color: var(--gray);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+            line-height: 1.7;
         }
 
         /* Footer */
         footer {
             background: var(--dark);
             color: white;
-            padding: 4rem 2rem;
-            text-align: center;
+            padding: 5rem 2rem 2rem;
         }
 
         .footer-content {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
+            text-align: center;
         }
 
         .footer-logo {
             font-family: 'Playfair Display', serif;
-            font-size: 2rem;
+            font-size: 2.2rem;
             margin-bottom: 1rem;
+            font-weight: 700;
         }
 
         .footer-text {
-            color: rgba(255,255,255,0.6);
-            margin-bottom: 2rem;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 2.5rem;
+            font-size: 1rem;
         }
 
         .footer-links {
             display: flex;
             justify-content: center;
-            gap: 2rem;
-            margin-bottom: 2rem;
+            gap: 2.5rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
         }
 
         .footer-links a {
-            color: rgba(255,255,255,0.8);
+            color: rgba(255,255,255,0.7);
             text-decoration: none;
             font-size: 0.9rem;
-            transition: color 0.3s;
+            transition: var(--transition-fast);
+            position: relative;
+        }
+
+        .footer-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: var(--transition);
         }
 
         .footer-links a:hover {
-            color: var(--accent);
+            color: white;
+        }
+
+        .footer-links a:hover::after {
+            width: 100%;
         }
 
         .footer-social {
             display: flex;
             justify-content: center;
             gap: 1rem;
+            margin-bottom: 3rem;
         }
 
         .footer-social a {
-            width: 40px;
-            height: 40px;
-            background: rgba(255,255,255,0.1);
+            width: 44px;
+            height: 44px;
+            background: rgba(255,255,255,0.08);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            transition: background 0.3s;
+            transition: var(--transition);
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
         .footer-social a:hover {
             background: var(--accent);
+            border-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.4);
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent), var(--gold));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: var(--transition);
+            box-shadow: var(--shadow-lg);
+            z-index: 100;
+            border: none;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(224, 122, 47, 0.4);
         }
 
         /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -709,35 +1210,68 @@
             }
         }
 
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateX(-50%) translateY(0);
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+                        transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+        .reveal-delay-5 { transition-delay: 0.5s; }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
             }
-            40% {
-                transform: translateX(-50%) translateY(-10px);
+
+            .about-image {
+                max-width: 400px;
+                margin: 0 auto;
             }
-            60% {
-                transform: translateX(-50%) translateY(-5px);
+
+            .investment-areas {
+                grid-template-columns: 1fr;
+                max-width: 400px;
             }
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
+            section {
+                padding: 5rem 1.5rem;
+            }
+
             .nav-links {
                 display: none;
             }
 
-            .hero h1 {
-                font-size: 2.5rem;
+            .menu-toggle {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: block;
             }
 
             .hero-stats {
                 flex-direction: column;
-                gap: 2rem;
+                gap: 1rem;
+                align-items: center;
             }
 
-            .about-grid {
-                grid-template-columns: 1fr;
+            .stat {
+                width: 100%;
+                max-width: 280px;
             }
 
             .about-highlights {
@@ -753,24 +1287,55 @@
                 flex-direction: column;
             }
 
-            .timeline-content {
+            .timeline-content,
+            .timeline-item:nth-child(odd) .timeline-content {
                 width: 100%;
                 margin-left: 50px !important;
                 margin-right: 0 !important;
+                text-align: left !important;
+            }
+
+            .timeline-dot {
+                left: 20px;
             }
 
             .timeline-year {
                 left: 20px;
-                transform: translateX(0);
+                transform: translateX(0) translateY(-100%);
             }
 
-            .investment-areas {
+            .companies-grid {
                 grid-template-columns: 1fr;
             }
 
             .gen-members {
                 flex-direction: column;
                 align-items: center;
+            }
+
+            .member-card {
+                width: 100%;
+                max-width: 280px;
+            }
+
+            .member-card.featured {
+                transform: none;
+            }
+
+            .member-card.featured:hover {
+                transform: translateY(-8px);
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .back-to-top {
+                bottom: 1.5rem;
+                right: 1.5rem;
+                width: 44px;
+                height: 44px;
             }
         }
 
@@ -782,42 +1347,76 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0,0,0,0.8);
+            background: rgba(10, 22, 40, 0.9);
+            backdrop-filter: blur(8px);
             z-index: 2000;
             align-items: center;
             justify-content: center;
             padding: 2rem;
+            opacity: 0;
+            transition: opacity var(--transition);
         }
 
         .modal.active {
             display: flex;
+            opacity: 1;
         }
 
         .modal-content {
             background: white;
-            border-radius: 20px;
-            max-width: 700px;
+            border-radius: 24px;
+            max-width: 650px;
             width: 100%;
-            max-height: 90vh;
+            max-height: 85vh;
             overflow-y: auto;
             position: relative;
+            transform: scale(0.9) translateY(20px);
+            transition: transform var(--transition);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .modal.active .modal-content {
+            transform: scale(1) translateY(0);
         }
 
         .modal-close {
             position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: none;
+            top: 1.25rem;
+            right: 1.25rem;
+            background: rgba(255,255,255,0.9);
             border: none;
-            font-size: 1.5rem;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            font-size: 1.25rem;
             cursor: pointer;
-            color: var(--gray);
+            color: var(--dark);
             z-index: 10;
+            transition: var(--transition-fast);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-close:hover {
+            background: white;
+            transform: rotate(90deg);
         }
 
         .modal-header {
-            padding: 2rem;
+            padding: 2.5rem 2rem;
             color: white;
+            border-radius: 24px 24px 0 0;
+        }
+
+        .modal-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-header p {
+            opacity: 0.85;
         }
 
         .modal-body {
@@ -826,12 +1425,19 @@
 
         .modal-body h3 {
             color: var(--primary);
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
+            margin-top: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .modal-body h3:first-child {
+            margin-top: 0;
         }
 
         .modal-body p {
             color: var(--gray);
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.7;
         }
 
         .modal-body ul {
@@ -840,26 +1446,43 @@
         }
 
         .modal-body li {
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
+            padding: 0.6rem 0;
+            padding-left: 1.75rem;
             position: relative;
             color: var(--gray);
+            line-height: 1.6;
         }
 
         .modal-body li::before {
-            content: '✓';
+            content: '';
             position: absolute;
             left: 0;
-            color: var(--accent);
-            font-weight: bold;
+            top: 1rem;
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
         }
     </style>
 </head>
 <body>
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-content">
+            <div class="loader-logo">EQN</div>
+            <div class="loader-bar">
+                <div class="loader-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reading Progress -->
+    <div class="reading-progress" id="readingProgress"></div>
+
     <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-content">
-            <div class="logo">EQN</div>
+            <div class="logo">EQN <span class="logo-accent"></span></div>
             <ul class="nav-links">
                 <li><a href="#about">Sobre</a></li>
                 <li><a href="#family">Família</a></li>
@@ -867,51 +1490,74 @@
                 <li><a href="#companies">Empresas</a></li>
                 <li><a href="#investments">Investimentos</a></li>
             </ul>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
 
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="#about">Sobre</a></li>
+            <li><a href="#family">Família</a></li>
+            <li><a href="#timeline">História</a></li>
+            <li><a href="#companies">Empresas</a></li>
+            <li><a href="#investments">Investimentos</a></li>
+        </ul>
+    </div>
+
     <!-- Hero Section -->
     <section class="hero">
+        <div class="hero-bg-pattern"></div>
         <div class="hero-content">
-            <span class="hero-badge">Presidente do Conselho de Administração do GEQ</span>
-            <h1>Edson Queiroz Neto</h1>
+            <span class="hero-badge">
+                <i class="fas fa-crown"></i>
+                Presidente do Conselho de Administração do GEQ
+            </span>
+            <h1>Edson Queiroz <span>Neto</span></h1>
             <p class="hero-subtitle">Empresário, investidor e herdeiro de um legado que transformou o Brasil</p>
             <div class="hero-stats">
                 <div class="stat">
-                    <div class="stat-number">R$ 12.8 bi</div>
+                    <div class="stat-number" data-value="12.8">R$ 0</div>
                     <div class="stat-label">Receita GEQ 2024</div>
                 </div>
                 <div class="stat">
-                    <div class="stat-number">9.000+</div>
+                    <div class="stat-number" data-value="9000">0</div>
                     <div class="stat-label">Colaboradores</div>
                 </div>
                 <div class="stat">
-                    <div class="stat-number">70+</div>
+                    <div class="stat-number" data-value="70">0</div>
                     <div class="stat-label">Anos de História</div>
                 </div>
             </div>
         </div>
         <div class="scroll-indicator">
-            <i class="fas fa-chevron-down"></i>
+            <span>Scroll</span>
+            <div class="scroll-mouse"></div>
         </div>
     </section>
 
     <!-- About Section -->
     <section class="about" id="about">
         <div class="about-grid">
-            <div class="about-image">
-                <div class="about-image-placeholder">
-                    <i class="fas fa-user"></i>
+            <div class="about-image reveal">
+                <div class="about-image-wrapper">
+                    <div class="about-image-placeholder">
+                        <i class="fas fa-user"></i>
+                    </div>
                 </div>
             </div>
             <div class="about-content">
-                <h3>Um Líder para o Futuro</h3>
-                <p>Edson Queiroz Neto é o atual Presidente do Conselho de Administração do Grupo Edson Queiroz (GEQ), um dos maiores conglomerados empresariais do Brasil. Neto do fundador Edson Queiroz e filho do chanceler Airton Queiroz, carrega um legado de mais de 70 anos de empreendedorismo e inovação.</p>
-                <p>Atualmente residindo em São Paulo, Edson Neto traz uma visão renovada para o futuro do grupo, combinando a tradição familiar com as tendências mais inovadoras do mercado empresarial brasileiro.</p>
-                <p>Além de suas responsabilidades no GEQ, é fundador da <strong>Colibri Capital</strong>, uma holding que atua em energias renováveis, construção civil e agronegócio, posicionando-se na vanguarda do desenvolvimento sustentável.</p>
+                <h3 class="reveal">Um Líder para o Futuro</h3>
+                <p class="reveal reveal-delay-1">Edson Queiroz Neto é o atual Presidente do Conselho de Administração do Grupo Edson Queiroz (GEQ), um dos maiores conglomerados empresariais do Brasil. Neto do fundador Edson Queiroz e filho do chanceler Airton Queiroz, carrega um legado de mais de 70 anos de empreendedorismo e inovação.</p>
+                <p class="reveal reveal-delay-2">Atualmente residindo em São Paulo, Edson Neto traz uma visão renovada para o futuro do grupo, combinando a tradição familiar com as tendências mais inovadoras do mercado empresarial brasileiro.</p>
+                <p class="reveal reveal-delay-3">Além de suas responsabilidades no GEQ, é fundador da <strong>Colibri Capital</strong>, uma holding que atua em energias renováveis, construção civil e agronegócio, posicionando-se na vanguarda do desenvolvimento sustentável.</p>
                 
                 <div class="about-highlights">
-                    <div class="highlight-item">
+                    <div class="highlight-item reveal reveal-delay-1">
                         <div class="highlight-icon">
                             <i class="fas fa-building"></i>
                         </div>
@@ -920,7 +1566,7 @@
                             <p>Presidente do Conselho de Administração</p>
                         </div>
                     </div>
-                    <div class="highlight-item">
+                    <div class="highlight-item reveal reveal-delay-2">
                         <div class="highlight-icon">
                             <i class="fas fa-solar-panel"></i>
                         </div>
@@ -929,7 +1575,7 @@
                             <p>Fundador e Investidor</p>
                         </div>
                     </div>
-                    <div class="highlight-item">
+                    <div class="highlight-item reveal reveal-delay-3">
                         <div class="highlight-icon">
                             <i class="fas fa-graduation-cap"></i>
                         </div>
@@ -938,7 +1584,7 @@
                             <p>2017 - 2021</p>
                         </div>
                     </div>
-                    <div class="highlight-item">
+                    <div class="highlight-item reveal reveal-delay-4">
                         <div class="highlight-icon">
                             <i class="fas fa-award"></i>
                         </div>
@@ -955,15 +1601,15 @@
     <!-- Family Section -->
     <section class="family" id="family">
         <div class="section-header">
-            <span class="section-badge">Legado</span>
-            <h2 class="section-title">A Família Queiroz</h2>
-            <p class="section-subtitle">Três gerações de empreendedorismo que transformaram o Ceará e o Brasil</p>
+            <span class="section-badge"><i class="fas fa-users"></i> Legado</span>
+            <h2 class="section-title reveal">A Família Queiroz</h2>
+            <p class="section-subtitle reveal reveal-delay-1">Três gerações de empreendedorismo que transformaram o Ceará e o Brasil</p>
         </div>
 
         <div class="family-tree">
             <!-- 1ª Geração -->
-            <div class="generation">
-                <span class="gen-label">1ª Geração - Fundador</span>
+            <div class="generation reveal">
+                <span class="gen-label">1ª Geração — Fundador</span>
                 <div class="gen-members">
                     <div class="member-card">
                         <div class="member-avatar">👨‍💼</div>
@@ -979,8 +1625,8 @@
             </div>
 
             <!-- 2ª Geração -->
-            <div class="generation">
-                <span class="gen-label">2ª Geração - 6 Filhos</span>
+            <div class="generation reveal">
+                <span class="gen-label">2ª Geração — 6 Filhos</span>
                 <div class="gen-members">
                     <div class="member-card">
                         <div class="member-avatar">👨‍💼</div>
@@ -1016,7 +1662,7 @@
             </div>
 
             <!-- 3ª Geração -->
-            <div class="generation">
+            <div class="generation reveal">
                 <span class="gen-label">3ª Geração</span>
                 <div class="gen-members">
                     <div class="member-card featured">
@@ -1042,89 +1688,101 @@
     <!-- Timeline Section -->
     <section class="timeline-section" id="timeline">
         <div class="section-header">
-            <span class="section-badge" style="background: var(--accent);">Cronologia</span>
-            <h2 class="section-title">Uma História de Pioneirismo</h2>
-            <p class="section-subtitle">Os marcos que construíram um império empresarial</p>
+            <span class="section-badge" style="background: linear-gradient(135deg, var(--accent), var(--gold));">
+                <i class="fas fa-clock"></i> Cronologia
+            </span>
+            <h2 class="section-title reveal">Uma História de Pioneirismo</h2>
+            <p class="section-subtitle reveal reveal-delay-1">Os marcos que construíram um império empresarial</p>
         </div>
 
         <div class="timeline">
-            <div class="timeline-item">
+            <div class="timeline-item reveal">
                 <div class="timeline-content">
                     <h4>O Início</h4>
                     <p>Edson Queiroz funda a empresa de distribuição de GLP, trazendo o gás de cozinha para o Nordeste e substituindo o fogão à lenha. Nasce a Nacional Gás.</p>
                 </div>
+                <div class="timeline-dot"></div>
                 <span class="timeline-year">1951</span>
             </div>
 
-            <div class="timeline-item">
+            <div class="timeline-item reveal">
                 <div class="timeline-content">
                     <h4>Nasce a Esmaltec</h4>
                     <p>Criação das fábricas de botijões e fogões, que evoluiriam para a Esmaltec, uma das maiores indústrias de eletrodomésticos da América Latina.</p>
                 </div>
+                <div class="timeline-dot"></div>
                 <span class="timeline-year">1963</span>
             </div>
 
-            <div class="timeline-item">
+            <div class="timeline-item reveal">
                 <div class="timeline-content">
                     <h4>Mídia e Comunicação</h4>
                     <p>Fundação da TV Verdes Mares (afiliada Globo), marco inicial do Sistema Verdes Mares, maior conglomerado de mídia do Ceará.</p>
                 </div>
+                <div class="timeline-dot"></div>
                 <span class="timeline-year">1970</span>
             </div>
 
-            <div class="timeline-item">
+            <div class="timeline-item reveal">
                 <div class="timeline-content">
                     <h4>Fundação da Unifor</h4>
                     <p>Criação da Universidade de Fortaleza, primeira universidade particular do Ceará, consolidando o legado educacional da família.</p>
                 </div>
+                <div class="timeline-dot"></div>
                 <span class="timeline-year">1973</span>
             </div>
 
-            <div class="timeline-item">
+            <div class="timeline-item reveal">
                 <div class="timeline-content">
                     <h4>Expansão em Bebidas</h4>
                     <p>Aquisição da primeira fonte da água Indaiá, iniciando o segmento de alimentos e bebidas que se tornaria a Minalba Brasil.</p>
                 </div>
+                <div class="timeline-dot"></div>
                 <span class="timeline-year">1979</span>
             </div>
 
-            <div class="timeline-item">
+            <div class="timeline-item reveal">
                 <div class="timeline-content">
                     <h4>Diário do Nordeste</h4>
                     <p>Fundação do jornal Diário do Nordeste, que se tornaria referência em jornalismo no Ceará.</p>
                 </div>
+                <div class="timeline-dot"></div>
                 <span class="timeline-year">1981</span>
             </div>
 
-            <div class="timeline-item">
+            <div class="timeline-item reveal">
                 <div class="timeline-content">
                     <h4>Edson Neto assume a Chancelaria</h4>
                     <p>Após o falecimento de seu pai Airton Queiroz, Edson Queiroz Neto assume como Chanceler da Unifor.</p>
                 </div>
+                <div class="timeline-dot"></div>
                 <span class="timeline-year">2017</span>
             </div>
 
-            <div class="timeline-item">
+            <div class="timeline-item reveal">
                 <div class="timeline-content">
                     <h4>Nova Governança</h4>
                     <p>O GEQ implementa nova estrutura de governança, posicionando membros da família no Conselho e trazendo executivo profissional para a presidência.</p>
                 </div>
+                <div class="timeline-dot"></div>
                 <span class="timeline-year">2021</span>
             </div>
 
-            <div class="timeline-item">
+            <div class="timeline-item reveal">
                 <div class="timeline-content">
                     <h4>Investimento em Energia Solar</h4>
                     <p>Edson Neto, via Colibri Capital e EB Capital, anuncia investimento de R$ 2 bilhões em energia solar distribuída.</p>
                 </div>
+                <div class="timeline-dot"></div>
                 <span class="timeline-year">2022</span>
             </div>
 
-            <div class="timeline-item">
+            <div class="timeline-item reveal">
                 <div class="timeline-content">
                     <h4>Presidência do Conselho</h4>
                     <p>Edson Queiroz Neto assume a presidência do Conselho de Administração do GEQ, liderando a estratégia do grupo para o futuro.</p>
                 </div>
+                <div class="timeline-dot"></div>
                 <span class="timeline-year">2024</span>
             </div>
         </div>
@@ -1133,14 +1791,14 @@
     <!-- Companies Section -->
     <section class="companies" id="companies">
         <div class="section-header">
-            <span class="section-badge">Portfólio</span>
-            <h2 class="section-title">Empresas do Grupo</h2>
-            <p class="section-subtitle">Um ecossistema diversificado que atende milhões de brasileiros</p>
+            <span class="section-badge"><i class="fas fa-briefcase"></i> Portfólio</span>
+            <h2 class="section-title reveal">Empresas do Grupo</h2>
+            <p class="section-subtitle reveal reveal-delay-1">Um ecossistema diversificado que atende milhões de brasileiros</p>
         </div>
 
         <div class="companies-grid">
             <!-- GEQ -->
-            <div class="company-card" onclick="openModal('geq')">
+            <div class="company-card reveal" onclick="openModal('geq')">
                 <div class="company-header geq">
                     <div class="company-icon">🏢</div>
                     <div class="company-name">Grupo Edson Queiroz</div>
@@ -1166,7 +1824,7 @@
             </div>
 
             <!-- Nacional Gás -->
-            <div class="company-card" onclick="openModal('nacional')">
+            <div class="company-card reveal" onclick="openModal('nacional')">
                 <div class="company-header nacional">
                     <div class="company-icon">🔥</div>
                     <div class="company-name">Nacional Gás</div>
@@ -1192,7 +1850,7 @@
             </div>
 
             <!-- Esmaltec -->
-            <div class="company-card" onclick="openModal('esmaltec')">
+            <div class="company-card reveal" onclick="openModal('esmaltec')">
                 <div class="company-header esmaltec">
                     <div class="company-icon">🍳</div>
                     <div class="company-name">Esmaltec</div>
@@ -1218,7 +1876,7 @@
             </div>
 
             <!-- Minalba -->
-            <div class="company-card" onclick="openModal('minalba')">
+            <div class="company-card reveal" onclick="openModal('minalba')">
                 <div class="company-header minalba">
                     <div class="company-icon">💧</div>
                     <div class="company-name">Minalba Brasil</div>
@@ -1244,7 +1902,7 @@
             </div>
 
             <!-- Sistema Verdes Mares -->
-            <div class="company-card" onclick="openModal('svm')">
+            <div class="company-card reveal" onclick="openModal('svm')">
                 <div class="company-header svm">
                     <div class="company-icon">📺</div>
                     <div class="company-name">Sistema Verdes Mares</div>
@@ -1270,7 +1928,7 @@
             </div>
 
             <!-- Colibri Capital -->
-            <div class="company-card" onclick="openModal('colibri')">
+            <div class="company-card reveal" onclick="openModal('colibri')">
                 <div class="company-header colibri">
                     <div class="company-icon">☀️</div>
                     <div class="company-name">Colibri Capital</div>
@@ -1300,18 +1958,18 @@
     <!-- Investments Section -->
     <section class="investments" id="investments">
         <div class="section-header">
-            <span class="section-badge">Visão de Futuro</span>
-            <h2 class="section-title">Investimentos Pessoais</h2>
-            <p class="section-subtitle">As áreas estratégicas onde Edson Queiroz Neto está construindo o futuro</p>
+            <span class="section-badge"><i class="fas fa-rocket"></i> Visão de Futuro</span>
+            <h2 class="section-title reveal">Investimentos Pessoais</h2>
+            <p class="section-subtitle reveal reveal-delay-1">As áreas estratégicas onde Edson Queiroz Neto está construindo o futuro</p>
         </div>
 
-        <div class="investment-hero">
+        <div class="investment-hero reveal">
             <h3>Colibri Capital</h3>
             <p>Uma das 5 maiores empresas de Geração Distribuída do Brasil, com mais de 1 milhão de painéis solares instalados em todos os estados brasileiros.</p>
         </div>
 
         <div class="investment-areas">
-            <div class="investment-area">
+            <div class="investment-area reveal">
                 <div class="investment-icon">
                     <i class="fas fa-solar-panel"></i>
                 </div>
@@ -1319,7 +1977,7 @@
                 <p>Líder em geração distribuída, com investimento de R$ 2 bilhões em parceria com EB Capital para expansão até 2025.</p>
             </div>
 
-            <div class="investment-area">
+            <div class="investment-area reveal reveal-delay-1">
                 <div class="investment-icon">
                     <i class="fas fa-tractor"></i>
                 </div>
@@ -1327,7 +1985,7 @@
                 <p>Produção sustentável de café, banana e hortaliças em sistema agroflorestal.</p>
             </div>
 
-            <div class="investment-area">
+            <div class="investment-area reveal reveal-delay-2">
                 <div class="investment-icon">
                     <i class="fas fa-building"></i>
                 </div>
@@ -1349,16 +2007,24 @@
                 <a href="https://www.verdesmares.com.br" target="_blank">Verdes Mares</a>
             </div>
             <div class="footer-social">
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 Edson Queiroz Neto. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
 
+    <!-- Back to top -->
+    <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <!-- Modals -->
     <div class="modal" id="modal-geq">
         <div class="modal-content">
-            <button class="modal-close" onclick="closeModal('geq')">&times;</button>
+            <button class="modal-close" onclick="closeModal('geq')" aria-label="Fechar">&times;</button>
             <div class="modal-header geq">
                 <h2>Grupo Edson Queiroz</h2>
                 <p>Mais de 70 anos transformando o Brasil</p>
@@ -1384,7 +2050,7 @@
 
     <div class="modal" id="modal-nacional">
         <div class="modal-content">
-            <button class="modal-close" onclick="closeModal('nacional')">&times;</button>
+            <button class="modal-close" onclick="closeModal('nacional')" aria-label="Fechar">&times;</button>
             <div class="modal-header nacional">
                 <h2>Nacional Gás</h2>
                 <p>O gás que aquece o Brasil</p>
@@ -1409,7 +2075,7 @@
 
     <div class="modal" id="modal-esmaltec">
         <div class="modal-content">
-            <button class="modal-close" onclick="closeModal('esmaltec')">&times;</button>
+            <button class="modal-close" onclick="closeModal('esmaltec')" aria-label="Fechar">&times;</button>
             <div class="modal-header esmaltec">
                 <h2>Esmaltec</h2>
                 <p>Qualidade em eletrodomésticos</p>
@@ -1434,7 +2100,7 @@
 
     <div class="modal" id="modal-minalba">
         <div class="modal-content">
-            <button class="modal-close" onclick="closeModal('minalba')">&times;</button>
+            <button class="modal-close" onclick="closeModal('minalba')" aria-label="Fechar">&times;</button>
             <div class="modal-header minalba">
                 <h2>Minalba Brasil</h2>
                 <p>Líder em águas minerais</p>
@@ -1459,7 +2125,7 @@
 
     <div class="modal" id="modal-svm">
         <div class="modal-content">
-            <button class="modal-close" onclick="closeModal('svm')">&times;</button>
+            <button class="modal-close" onclick="closeModal('svm')" aria-label="Fechar">&times;</button>
             <div class="modal-header svm">
                 <h2>Sistema Verdes Mares</h2>
                 <p>A voz do Ceará</p>
@@ -1486,7 +2152,7 @@
 
     <div class="modal" id="modal-colibri">
         <div class="modal-content">
-            <button class="modal-close" onclick="closeModal('colibri')">&times;</button>
+            <button class="modal-close" onclick="closeModal('colibri')" aria-label="Fechar">&times;</button>
             <div class="modal-header colibri">
                 <h2>Colibri Capital</h2>
                 <p>Energia para o futuro</p>
@@ -1512,14 +2178,48 @@
     </div>
 
     <script>
+        // Page loader
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('pageLoader').classList.add('loaded');
+            }, 1500);
+        });
+
+        // Reading progress bar
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('readingProgress').style.width = scrolled + '%';
+        });
+
         // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
                 navbar.classList.add('scrolled');
             } else {
                 navbar.classList.remove('scrolled');
             }
+        });
+
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        });
+
+        // Close mobile menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
         });
 
         // Smooth scroll for nav links
@@ -1536,14 +2236,85 @@
             });
         });
 
+        // Back to top button
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Reveal on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -80px 0px'
+        };
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            revealObserver.observe(el);
+        });
+
+        // Animated numbers
+        const animateNumbers = () => {
+            const stats = document.querySelectorAll('.stat-number[data-value]');
+            stats.forEach(stat => {
+                const value = parseFloat(stat.dataset.value);
+                const isDecimal = value % 1 !== 0;
+                const prefix = stat.textContent.includes('R$') ? 'R$ ' : '';
+                const suffix = stat.textContent.includes('+') ? '+' : (stat.textContent.includes('bi') ? ' bi' : '');
+                
+                let current = 0;
+                const increment = value / 60;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= value) {
+                        current = value;
+                        clearInterval(timer);
+                    }
+                    stat.textContent = prefix + (isDecimal ? current.toFixed(1) : Math.floor(current).toLocaleString('pt-BR')) + suffix;
+                }, 25);
+            });
+        };
+
+        // Trigger number animation when hero is visible
+        const heroObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setTimeout(animateNumbers, 500);
+                    heroObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        heroObserver.observe(document.querySelector('.hero'));
+
         // Modal functions
         function openModal(id) {
-            document.getElementById('modal-' + id).classList.add('active');
+            const modal = document.getElementById('modal-' + id);
+            modal.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
 
         function closeModal(id) {
-            document.getElementById('modal-' + id).classList.remove('active');
+            const modal = document.getElementById('modal-' + id);
+            modal.classList.remove('active');
             document.body.style.overflow = '';
         }
 
@@ -1558,36 +2329,13 @@
         });
 
         // Close modal on ESC
-        document.addEventListener('keydown', function(e) {
+        document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 document.querySelectorAll('.modal.active').forEach(modal => {
                     modal.classList.remove('active');
                 });
                 document.body.style.overflow = '';
             }
-        });
-
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe elements for animation
-        document.querySelectorAll('.company-card, .member-card, .timeline-item, .investment-area').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
         });
     </script>
 </body>
