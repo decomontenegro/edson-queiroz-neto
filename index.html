@@ -1,0 +1,1594 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edson Queiroz Neto - Empresário & Investidor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a365d;
+            --secondary: #2c5282;
+            --accent: #ed8936;
+            --gold: #d69e2e;
+            --dark: #1a202c;
+            --light: #f7fafc;
+            --gray: #718096;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(26, 54, 93, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 0.5rem 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: white;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/></svg>');
+            background-size: 100px 100px;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: white;
+            z-index: 1;
+            padding: 2rem;
+            max-width: 900px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-top: 3rem;
+            animation: fadeInUp 0.8s ease 0.6s both;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator i {
+            color: rgba(255,255,255,0.5);
+            font-size: 2rem;
+        }
+
+        /* Sections */
+        section {
+            padding: 6rem 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        .about {
+            background: white;
+        }
+
+        .about-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image-placeholder {
+            width: 100%;
+            aspect-ratio: 3/4;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 8rem;
+        }
+
+        .about-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .about-highlights {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .highlight-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .highlight-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent), var(--gold));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .highlight-text h4 {
+            font-size: 1rem;
+            color: var(--dark);
+            margin-bottom: 0.3rem;
+        }
+
+        .highlight-text p {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin: 0;
+        }
+
+        /* Family Section */
+        .family {
+            background: linear-gradient(180deg, #f7fafc 0%, #edf2f7 100%);
+        }
+
+        .family-tree {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .generation {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .generation::after {
+            content: '';
+            position: absolute;
+            bottom: -1.5rem;
+            width: 2px;
+            height: 1.5rem;
+            background: var(--primary);
+        }
+
+        .generation:last-child::after {
+            display: none;
+        }
+
+        .gen-label {
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .gen-members {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .member-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            min-width: 180px;
+        }
+
+        .member-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+
+        .member-card.featured {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+
+        .member-avatar {
+            width: 80px;
+            height: 80px;
+            background: var(--light);
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .member-card.featured .member-avatar {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .member-name {
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .member-role {
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+
+        /* Timeline Section */
+        .timeline-section {
+            background: var(--primary);
+            color: white;
+        }
+
+        .timeline-section .section-title {
+            color: white;
+        }
+
+        .timeline-section .section-subtitle {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .timeline {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background: rgba(255,255,255,0.2);
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            width: 45%;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: 16px;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-right: 5%;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: 5%;
+        }
+
+        .timeline-year {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .timeline-content h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent);
+        }
+
+        .timeline-content p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+
+        /* Companies Section */
+        .companies {
+            background: white;
+        }
+
+        .companies-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .company-card {
+            background: var(--light);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .company-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .company-header {
+            padding: 2rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .company-header.geq { background: linear-gradient(135deg, #1a365d, #2c5282); }
+        .company-header.nacional { background: linear-gradient(135deg, #2b6cb0, #4299e1); }
+        .company-header.esmaltec { background: linear-gradient(135deg, #c53030, #e53e3e); }
+        .company-header.minalba { background: linear-gradient(135deg, #2f855a, #48bb78); }
+        .company-header.svm { background: linear-gradient(135deg, #6b46c1, #805ad5); }
+        .company-header.colibri { background: linear-gradient(135deg, #d69e2e, #ed8936); }
+
+        .company-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .company-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .company-tagline {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .company-body {
+            padding: 1.5rem 2rem 2rem;
+        }
+
+        .company-body p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .company-stats {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .company-stat {
+            text-align: center;
+        }
+
+        .company-stat-value {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .company-stat-label {
+            font-size: 0.75rem;
+            color: var(--gray);
+        }
+
+        /* Personal Investments */
+        .investments {
+            background: linear-gradient(180deg, #f7fafc 0%, white 100%);
+        }
+
+        .investment-hero {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, var(--gold), var(--accent));
+            border-radius: 24px;
+            padding: 3rem;
+            color: white;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .investment-hero h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .investment-hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .investment-areas {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .investment-area {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .investment-area:hover {
+            transform: translateY(-5px);
+        }
+
+        .investment-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--gold), var(--accent));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .investment-area h4 {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .investment-area p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-text {
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: background 0.3s;
+        }
+
+        .footer-social a:hover {
+            background: var(--accent);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-highlights {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item,
+            .timeline-item:nth-child(odd) {
+                flex-direction: column;
+            }
+
+            .timeline-content {
+                width: 100%;
+                margin-left: 50px !important;
+                margin-right: 0 !important;
+            }
+
+            .timeline-year {
+                left: 20px;
+                transform: translateX(0);
+            }
+
+            .investment-areas {
+                grid-template-columns: 1fr;
+            }
+
+            .gen-members {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            max-width: 700px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray);
+            z-index: 10;
+        }
+
+        .modal-header {
+            padding: 2rem;
+            color: white;
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .modal-body h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .modal-body p {
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+
+        .modal-body ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .modal-body li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--gray);
+        }
+
+        .modal-body li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-content">
+            <div class="logo">EQN</div>
+            <ul class="nav-links">
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#family">Família</a></li>
+                <li><a href="#timeline">História</a></li>
+                <li><a href="#companies">Empresas</a></li>
+                <li><a href="#investments">Investimentos</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-badge">Presidente do Conselho de Administração do GEQ</span>
+            <h1>Edson Queiroz Neto</h1>
+            <p class="hero-subtitle">Empresário, investidor e herdeiro de um legado que transformou o Brasil</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number">R$ 12.8 bi</div>
+                    <div class="stat-label">Receita GEQ 2024</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">9.000+</div>
+                    <div class="stat-label">Colaboradores</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">70+</div>
+                    <div class="stat-label">Anos de História</div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-grid">
+            <div class="about-image">
+                <div class="about-image-placeholder">
+                    <i class="fas fa-user"></i>
+                </div>
+            </div>
+            <div class="about-content">
+                <h3>Um Líder para o Futuro</h3>
+                <p>Edson Queiroz Neto é o atual Presidente do Conselho de Administração do Grupo Edson Queiroz (GEQ), um dos maiores conglomerados empresariais do Brasil. Neto do fundador Edson Queiroz e filho do chanceler Airton Queiroz, carrega um legado de mais de 70 anos de empreendedorismo e inovação.</p>
+                <p>Atualmente residindo em São Paulo, Edson Neto traz uma visão renovada para o futuro do grupo, combinando a tradição familiar com as tendências mais inovadoras do mercado empresarial brasileiro.</p>
+                <p>Além de suas responsabilidades no GEQ, é fundador da <strong>Colibri Capital</strong>, uma holding que atua em energias renováveis, construção civil e agronegócio, posicionando-se na vanguarda do desenvolvimento sustentável.</p>
+                
+                <div class="about-highlights">
+                    <div class="highlight-item">
+                        <div class="highlight-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="highlight-text">
+                            <h4>Grupo Edson Queiroz</h4>
+                            <p>Presidente do Conselho de Administração</p>
+                        </div>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="highlight-icon">
+                            <i class="fas fa-solar-panel"></i>
+                        </div>
+                        <div class="highlight-text">
+                            <h4>Colibri Capital</h4>
+                            <p>Fundador e Investidor</p>
+                        </div>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="highlight-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="highlight-text">
+                            <h4>Ex-Chanceler Unifor</h4>
+                            <p>2017 - 2021</p>
+                        </div>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="highlight-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div class="highlight-text">
+                            <h4>Homenageado LIDE</h4>
+                            <p>Natal do Bem 2024</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Family Section -->
+    <section class="family" id="family">
+        <div class="section-header">
+            <span class="section-badge">Legado</span>
+            <h2 class="section-title">A Família Queiroz</h2>
+            <p class="section-subtitle">Três gerações de empreendedorismo que transformaram o Ceará e o Brasil</p>
+        </div>
+
+        <div class="family-tree">
+            <!-- 1ª Geração -->
+            <div class="generation">
+                <span class="gen-label">1ª Geração - Fundador</span>
+                <div class="gen-members">
+                    <div class="member-card">
+                        <div class="member-avatar">👨‍💼</div>
+                        <div class="member-name">Edson Queiroz</div>
+                        <div class="member-role">Fundador (1925-1982)</div>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-avatar">👩</div>
+                        <div class="member-name">Yolanda Queiroz</div>
+                        <div class="member-role">Matriarca</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2ª Geração -->
+            <div class="generation">
+                <span class="gen-label">2ª Geração - 6 Filhos</span>
+                <div class="gen-members">
+                    <div class="member-card">
+                        <div class="member-avatar">👨‍💼</div>
+                        <div class="member-name">Airton Queiroz</div>
+                        <div class="member-role">Chanceler (1946-2017)</div>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-avatar">👩</div>
+                        <div class="member-name">Myra Eliane</div>
+                        <div class="member-role">Herdeira</div>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-avatar">👨</div>
+                        <div class="member-name">Edson Filho</div>
+                        <div class="member-role">Herdeiro</div>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-avatar">👩</div>
+                        <div class="member-name">Renata</div>
+                        <div class="member-role">Herdeira</div>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-avatar">👩</div>
+                        <div class="member-name">Lenise Queiroz</div>
+                        <div class="member-role">Pres. Fundação EQ</div>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-avatar">👩</div>
+                        <div class="member-name">Paula</div>
+                        <div class="member-role">Herdeira</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3ª Geração -->
+            <div class="generation">
+                <span class="gen-label">3ª Geração</span>
+                <div class="gen-members">
+                    <div class="member-card featured">
+                        <div class="member-avatar">🏆</div>
+                        <div class="member-name">Edson Queiroz Neto</div>
+                        <div class="member-role">Pres. Conselho GEQ</div>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-avatar">👩</div>
+                        <div class="member-name">Patrícia Queiroz</div>
+                        <div class="member-role">Herdeira</div>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-avatar">👨</div>
+                        <div class="member-name">Igor Queiroz</div>
+                        <div class="member-role">Conselheiro GEQ</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline-section" id="timeline">
+        <div class="section-header">
+            <span class="section-badge" style="background: var(--accent);">Cronologia</span>
+            <h2 class="section-title">Uma História de Pioneirismo</h2>
+            <p class="section-subtitle">Os marcos que construíram um império empresarial</p>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h4>O Início</h4>
+                    <p>Edson Queiroz funda a empresa de distribuição de GLP, trazendo o gás de cozinha para o Nordeste e substituindo o fogão à lenha. Nasce a Nacional Gás.</p>
+                </div>
+                <span class="timeline-year">1951</span>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h4>Nasce a Esmaltec</h4>
+                    <p>Criação das fábricas de botijões e fogões, que evoluiriam para a Esmaltec, uma das maiores indústrias de eletrodomésticos da América Latina.</p>
+                </div>
+                <span class="timeline-year">1963</span>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h4>Mídia e Comunicação</h4>
+                    <p>Fundação da TV Verdes Mares (afiliada Globo), marco inicial do Sistema Verdes Mares, maior conglomerado de mídia do Ceará.</p>
+                </div>
+                <span class="timeline-year">1970</span>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h4>Fundação da Unifor</h4>
+                    <p>Criação da Universidade de Fortaleza, primeira universidade particular do Ceará, consolidando o legado educacional da família.</p>
+                </div>
+                <span class="timeline-year">1973</span>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h4>Expansão em Bebidas</h4>
+                    <p>Aquisição da primeira fonte da água Indaiá, iniciando o segmento de alimentos e bebidas que se tornaria a Minalba Brasil.</p>
+                </div>
+                <span class="timeline-year">1979</span>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h4>Diário do Nordeste</h4>
+                    <p>Fundação do jornal Diário do Nordeste, que se tornaria referência em jornalismo no Ceará.</p>
+                </div>
+                <span class="timeline-year">1981</span>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h4>Edson Neto assume a Chancelaria</h4>
+                    <p>Após o falecimento de seu pai Airton Queiroz, Edson Queiroz Neto assume como Chanceler da Unifor.</p>
+                </div>
+                <span class="timeline-year">2017</span>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h4>Nova Governança</h4>
+                    <p>O GEQ implementa nova estrutura de governança, posicionando membros da família no Conselho e trazendo executivo profissional para a presidência.</p>
+                </div>
+                <span class="timeline-year">2021</span>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h4>Investimento em Energia Solar</h4>
+                    <p>Edson Neto, via Colibri Capital e EB Capital, anuncia investimento de R$ 2 bilhões em energia solar distribuída.</p>
+                </div>
+                <span class="timeline-year">2022</span>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h4>Presidência do Conselho</h4>
+                    <p>Edson Queiroz Neto assume a presidência do Conselho de Administração do GEQ, liderando a estratégia do grupo para o futuro.</p>
+                </div>
+                <span class="timeline-year">2024</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Companies Section -->
+    <section class="companies" id="companies">
+        <div class="section-header">
+            <span class="section-badge">Portfólio</span>
+            <h2 class="section-title">Empresas do Grupo</h2>
+            <p class="section-subtitle">Um ecossistema diversificado que atende milhões de brasileiros</p>
+        </div>
+
+        <div class="companies-grid">
+            <!-- GEQ -->
+            <div class="company-card" onclick="openModal('geq')">
+                <div class="company-header geq">
+                    <div class="company-icon">🏢</div>
+                    <div class="company-name">Grupo Edson Queiroz</div>
+                    <div class="company-tagline">Holding do Conglomerado</div>
+                </div>
+                <div class="company-body">
+                    <p>Conglomerado empresarial com mais de 70 anos de história, presente nos mais diversos momentos da vida dos brasileiros.</p>
+                    <div class="company-stats">
+                        <div class="company-stat">
+                            <div class="company-stat-value">R$ 12.8 bi</div>
+                            <div class="company-stat-label">Receita 2024</div>
+                        </div>
+                        <div class="company-stat">
+                            <div class="company-stat-value">9.000</div>
+                            <div class="company-stat-label">Colaboradores</div>
+                        </div>
+                        <div class="company-stat">
+                            <div class="company-stat-value">4</div>
+                            <div class="company-stat-label">Negócios</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nacional Gás -->
+            <div class="company-card" onclick="openModal('nacional')">
+                <div class="company-header nacional">
+                    <div class="company-icon">🔥</div>
+                    <div class="company-name">Nacional Gás</div>
+                    <div class="company-tagline">Distribuição de GLP</div>
+                </div>
+                <div class="company-body">
+                    <p>Líder em distribuição de gás GLP no Nordeste, presente há 70 anos nos lares brasileiros com as marcas Nacional Gás, Paragás e Brasil Gás.</p>
+                    <div class="company-stats">
+                        <div class="company-stat">
+                            <div class="company-stat-value">70+</div>
+                            <div class="company-stat-label">Anos</div>
+                        </div>
+                        <div class="company-stat">
+                            <div class="company-stat-value">22</div>
+                            <div class="company-stat-label">Estados</div>
+                        </div>
+                        <div class="company-stat">
+                            <div class="company-stat-value">40M</div>
+                            <div class="company-stat-label">Brasileiros</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Esmaltec -->
+            <div class="company-card" onclick="openModal('esmaltec')">
+                <div class="company-header esmaltec">
+                    <div class="company-icon">🍳</div>
+                    <div class="company-name">Esmaltec</div>
+                    <div class="company-tagline">Eletrodomésticos</div>
+                </div>
+                <div class="company-body">
+                    <p>Uma das mais modernas indústrias de eletrodomésticos da América Latina. Líder na produção de fogões e bebedouros (Gelágua®).</p>
+                    <div class="company-stats">
+                        <div class="company-stat">
+                            <div class="company-stat-value">60+</div>
+                            <div class="company-stat-label">Anos</div>
+                        </div>
+                        <div class="company-stat">
+                            <div class="company-stat-value">#1</div>
+                            <div class="company-stat-label">em Fogões</div>
+                        </div>
+                        <div class="company-stat">
+                            <div class="company-stat-value">#1</div>
+                            <div class="company-stat-label">Bebedouros</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Minalba -->
+            <div class="company-card" onclick="openModal('minalba')">
+                <div class="company-header minalba">
+                    <div class="company-icon">💧</div>
+                    <div class="company-name">Minalba Brasil</div>
+                    <div class="company-tagline">Águas e Bebidas</div>
+                </div>
+                <div class="company-body">
+                    <p>Líder em vendas de águas minerais naturais no Brasil, com mais de 15 marcas incluindo Minalba, Indaiá e outras.</p>
+                    <div class="company-stats">
+                        <div class="company-stat">
+                            <div class="company-stat-value">#1</div>
+                            <div class="company-stat-label">Brasil</div>
+                        </div>
+                        <div class="company-stat">
+                            <div class="company-stat-value">15+</div>
+                            <div class="company-stat-label">Marcas</div>
+                        </div>
+                        <div class="company-stat">
+                            <div class="company-stat-value">100%</div>
+                            <div class="company-stat-label">Braille</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sistema Verdes Mares -->
+            <div class="company-card" onclick="openModal('svm')">
+                <div class="company-header svm">
+                    <div class="company-icon">📺</div>
+                    <div class="company-name">Sistema Verdes Mares</div>
+                    <div class="company-tagline">Mídia e Comunicação</div>
+                </div>
+                <div class="company-body">
+                    <p>Um dos mais sólidos conglomerados de mídia do país, presente em 184 municípios cearenses com TV, rádio e jornal.</p>
+                    <div class="company-stats">
+                        <div class="company-stat">
+                            <div class="company-stat-value">55+</div>
+                            <div class="company-stat-label">Anos</div>
+                        </div>
+                        <div class="company-stat">
+                            <div class="company-stat-value">184</div>
+                            <div class="company-stat-label">Municípios</div>
+                        </div>
+                        <div class="company-stat">
+                            <div class="company-stat-value">7+</div>
+                            <div class="company-stat-label">Veículos</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Colibri Capital -->
+            <div class="company-card" onclick="openModal('colibri')">
+                <div class="company-header colibri">
+                    <div class="company-icon">☀️</div>
+                    <div class="company-name">Colibri Capital</div>
+                    <div class="company-tagline">Investimentos Pessoais</div>
+                </div>
+                <div class="company-body">
+                    <p>Holding pessoal de Edson Queiroz Neto, entre as 5 maiores em geração distribuída do Brasil. Atua em energia, agro e construção.</p>
+                    <div class="company-stats">
+                        <div class="company-stat">
+                            <div class="company-stat-value">R$ 2 bi</div>
+                            <div class="company-stat-label">Investimento</div>
+                        </div>
+                        <div class="company-stat">
+                            <div class="company-stat-value">1M+</div>
+                            <div class="company-stat-label">Painéis</div>
+                        </div>
+                        <div class="company-stat">
+                            <div class="company-stat-value">27</div>
+                            <div class="company-stat-label">Estados</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Investments Section -->
+    <section class="investments" id="investments">
+        <div class="section-header">
+            <span class="section-badge">Visão de Futuro</span>
+            <h2 class="section-title">Investimentos Pessoais</h2>
+            <p class="section-subtitle">As áreas estratégicas onde Edson Queiroz Neto está construindo o futuro</p>
+        </div>
+
+        <div class="investment-hero">
+            <h3>Colibri Capital</h3>
+            <p>Uma das 5 maiores empresas de Geração Distribuída do Brasil, com mais de 1 milhão de painéis solares instalados em todos os estados brasileiros.</p>
+        </div>
+
+        <div class="investment-areas">
+            <div class="investment-area">
+                <div class="investment-icon">
+                    <i class="fas fa-solar-panel"></i>
+                </div>
+                <h4>Energia Solar</h4>
+                <p>Líder em geração distribuída, com investimento de R$ 2 bilhões em parceria com EB Capital para expansão até 2025.</p>
+            </div>
+
+            <div class="investment-area">
+                <div class="investment-icon">
+                    <i class="fas fa-tractor"></i>
+                </div>
+                <h4>Agronegócio</h4>
+                <p>Produção sustentável de café, banana e hortaliças em sistema agroflorestal.</p>
+            </div>
+
+            <div class="investment-area">
+                <div class="investment-icon">
+                    <i class="fas fa-building"></i>
+                </div>
+                <h4>Construção Civil</h4>
+                <p>Projetos em mais de 2 milhões de metros quadrados sob responsabilidade da Colibri.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">Edson Queiroz Neto</div>
+            <p class="footer-text">Empresário, investidor e herdeiro de um legado de transformação</p>
+            <div class="footer-links">
+                <a href="https://www.geq.com.br" target="_blank">Grupo Edson Queiroz</a>
+                <a href="https://www.colibri.capital" target="_blank">Colibri Capital</a>
+                <a href="https://unifor.br" target="_blank">Unifor</a>
+                <a href="https://www.verdesmares.com.br" target="_blank">Verdes Mares</a>
+            </div>
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div class="modal" id="modal-geq">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('geq')">&times;</button>
+            <div class="modal-header geq">
+                <h2>Grupo Edson Queiroz</h2>
+                <p>Mais de 70 anos transformando o Brasil</p>
+            </div>
+            <div class="modal-body">
+                <h3>Sobre o Grupo</h3>
+                <p>O Grupo Edson Queiroz (GEQ) é um conglomerado empresarial com mais de 70 anos de história e que se faz presente nos mais diversos momentos da vida dos brasileiros.</p>
+                <p>Com um portfólio diversificado de marcas e produtos de segmentos variados, atua em 4 negócios principais, empregando diretamente cerca de 9 mil colaboradores.</p>
+                
+                <h3>Números 2024</h3>
+                <ul>
+                    <li>Receita bruta de R$ 12.8 bilhões</li>
+                    <li>Crescimento de EBITDA de 36%</li>
+                    <li>9.000 colaboradores diretos</li>
+                    <li>Presença em todos os estados brasileiros</li>
+                </ul>
+                
+                <h3>Governança</h3>
+                <p>Em 2024, Edson Queiroz Neto assumiu a presidência do Conselho de Administração, liderando a estratégia de crescimento e inovação do grupo para as próximas décadas.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modal-nacional">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('nacional')">&times;</button>
+            <div class="modal-header nacional">
+                <h2>Nacional Gás</h2>
+                <p>O gás que aquece o Brasil</p>
+            </div>
+            <div class="modal-body">
+                <h3>História</h3>
+                <p>Fundada em 1951, a Nacional Gás foi a primeira empresa do Grupo Edson Queiroz. O empresário viabilizou de forma pioneira a importação de GLP dos Estados Unidos para o Ceará, promovendo uma revolução ao substituir o fogão à lenha pelo botijão de gás.</p>
+                
+                <h3>Presença Nacional</h3>
+                <ul>
+                    <li>Líder no Nordeste em distribuição de GLP</li>
+                    <li>Presente em 22 estados brasileiros</li>
+                    <li>Atende mais de 40 milhões de brasileiros</li>
+                    <li>Marcas: Nacional Gás, Paragás e Brasil Gás</li>
+                </ul>
+                
+                <h3>Expansão Recente</h3>
+                <p>Em 2020, a Nacional Gás realizou a aquisição de ativos da Liquigás e da Copagaz, consolidando sua liderança no Nordeste e fortalecendo sua posição no Sul, Sudeste e Centro-Oeste.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modal-esmaltec">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('esmaltec')">&times;</button>
+            <div class="modal-header esmaltec">
+                <h2>Esmaltec</h2>
+                <p>Qualidade em eletrodomésticos</p>
+            </div>
+            <div class="modal-body">
+                <h3>Origem</h3>
+                <p>Criada em 1963 para dar suporte à venda de GLP, começou como fábrica de botijões e fogões. Hoje é uma das mais modernas indústrias de eletrodomésticos da América Latina.</p>
+                
+                <h3>Liderança</h3>
+                <ul>
+                    <li>Líder na produção e venda de fogões no Brasil</li>
+                    <li>Líder no segmento de bebedouros com o Gelágua®</li>
+                    <li>Maior índice de eficiência energética do mercado</li>
+                    <li>Linhas constantemente renovadas e inovadoras</li>
+                </ul>
+                
+                <h3>Produtos</h3>
+                <p>A Esmaltec produz uma ampla gama de eletrodomésticos, incluindo fogões, geladeiras, freezers, bebedouros e purificadores de água, sempre com foco em qualidade e acessibilidade.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modal-minalba">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('minalba')">&times;</button>
+            <div class="modal-header minalba">
+                <h2>Minalba Brasil</h2>
+                <p>Líder em águas minerais</p>
+            </div>
+            <div class="modal-body">
+                <h3>Origem</h3>
+                <p>Em 1979, Edson Queiroz comprou a primeira fonte da água Indaiá, iniciando o segmento de alimentos e bebidas. Em 1985, adquiriu a Minalba Alimentos e Bebidas S.A.</p>
+                
+                <h3>Liderança de Mercado</h3>
+                <ul>
+                    <li>Líder em vendas de águas minerais naturais no Brasil</li>
+                    <li>Portfólio com mais de 15 marcas de bebidas</li>
+                    <li>Primeira empresa a adotar 100% de tampas em braille</li>
+                    <li>Sistemas fabris totalmente automatizados</li>
+                </ul>
+                
+                <h3>Sustentabilidade</h3>
+                <p>A empresa promove a preservação das áreas onde estão inseridas as fontes naturais, garantindo a qualidade e pureza da água para as futuras gerações.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modal-svm">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('svm')">&times;</button>
+            <div class="modal-header svm">
+                <h2>Sistema Verdes Mares</h2>
+                <p>A voz do Ceará</p>
+            </div>
+            <div class="modal-body">
+                <h3>História</h3>
+                <p>Criado em 1960 com a Rádio Verdes Mares, expandiu-se em 1970 com a fundação da TV Verdes Mares (afiliada Globo) e em 1981 com o jornal Diário do Nordeste.</p>
+                
+                <h3>Veículos</h3>
+                <ul>
+                    <li>TV Verdes Mares (afiliada Globo)</li>
+                    <li>TV Verdes Mares Cariri</li>
+                    <li>TV Diário</li>
+                    <li>Jornal Diário do Nordeste</li>
+                    <li>Rádios: FM 93, Verdinha, Recife FM, Tamoio</li>
+                    <li>Portais G1 Ceará e Globo Esporte Ceará</li>
+                </ul>
+                
+                <h3>Inovação</h3>
+                <p>Em 2018, inaugurou sua redação integrada, um projeto pioneiro no Brasil que colocou o SVM na vanguarda da imprensa mundial, integrando todos os veículos no modo de fazer jornalismo.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modal-colibri">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('colibri')">&times;</button>
+            <div class="modal-header colibri">
+                <h2>Colibri Capital</h2>
+                <p>Energia para o futuro</p>
+            </div>
+            <div class="modal-body">
+                <h3>Sobre</h3>
+                <p>A Colibri Capital é a holding pessoal de Edson Queiroz Neto, posicionada entre as 5 maiores empresas do setor de Geração Distribuída do Brasil.</p>
+                
+                <h3>Áreas de Atuação</h3>
+                <ul>
+                    <li><strong>Energia Solar:</strong> Mais de 1 milhão de painéis solares instalados em todos os estados</li>
+                    <li><strong>Agronegócio:</strong> Produção de café, banana e hortaliças em sistema agroflorestal</li>
+                    <li><strong>Construção Civil:</strong> Mais de 2 milhões de m² em projetos</li>
+                </ul>
+                
+                <h3>Investimentos</h3>
+                <p>Em 2022, a Colibri Capital, em parceria com a EB Capital, anunciou investimento de R$ 2 bilhões em energia solar distribuída até 2025, demonstrando o compromisso com o desenvolvimento sustentável.</p>
+                
+                <h3>E1 Energia</h3>
+                <p>Através da E1 Energia, a Colibri atua na construção, operação e manutenção de usinas solares para residências e empresas em todo o Brasil.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Modal functions
+        function openModal(id) {
+            document.getElementById('modal-' + id).classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(id) {
+            document.getElementById('modal-' + id).classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close modal on backdrop click
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+
+        // Close modal on ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal.active').forEach(modal => {
+                    modal.classList.remove('active');
+                });
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.company-card, .member-card, .timeline-item, .investment-area').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
